@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "buildTime": "2026-02-24T06:12:22.612Z",
+  "mockups": [
+    {
+      "slug": "Buenos_Días_Mexican_Cuisine",
+      "businessId": 1,
+      "path": "/m/Buenos_Días_Mexican_Cuisine/",
+      "file": "1_Buenos_Días_Mexican_Cuisine.html",
+      "size": 5569,
+      "copiedAt": "2026-02-24T06:12:22.613Z"
+    },
+    {
+      "slug": "Tinas_Tacos",
+      "businessId": 7,
+      "path": "/m/Tinas_Tacos/",
+      "file": "7_Tinas_Tacos.html",
+      "size": 13615,
+      "copiedAt": "2026-02-24T06:12:22.617Z"
+    }
+  ],
+  "total": 2
+}
