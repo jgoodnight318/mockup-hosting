@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && npm run build:mockups",
+    "build:mockups": "node scripts/build-mockups.js",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "copy-mockups": "node scripts/copy-mockups.js"
   },
   "dependencies": {
     "next": "16.1.6",
