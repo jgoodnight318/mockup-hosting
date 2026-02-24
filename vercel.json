@@ -5,12 +5,7 @@
   "env": {
     "NODE_ENV": "production"
   },
-  "functions": {
-    "api/**/*.ts": {
-      "maxDuration": 60
-    }
-  },
-  "rewrites": [
+"rewrites": [
     {
       "source": "/m/:slug(.*)",
       "destination": "/m/:slug"
