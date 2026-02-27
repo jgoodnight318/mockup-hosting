@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iron Soul Gym</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Barlow',system-ui,sans-serif; color:#1a1010; background:#faf2f2; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img { max-width:100%; display:block; }
+  a { text-decoration:none; color:inherit; }
+
+  :root { --bg:#0e0a0a; --bg2:#1a1414; --accent:#e03030; --accent-dk:#c02020; --accent-lt:#f06060; --surface:#faf2f2; --surface2:#faf2f2; --text:#1a1010; --text-lt:#8a6868; }
+
+  @keyframes grain { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2%,-3%)} 30%{transform:translate(3%,2%)} 50%{transform:translate(-1%,4%)} 70%{transform:translate(4%,-1%)} 90%{transform:translate(-3%,3%)} }
+  .grain::after { content:''; position:absolute; inset:-50%; width:200%; height:200%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity:0.04; pointer-events:none; animation:grain 8s steps(10) infinite; z-index:1; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up   { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) forwards; }
+  .fade-up-1 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .12s forwards; opacity:0; }
+  .fade-up-2 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .28s forwards; opacity:0; }
+  .fade-up-3 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .42s forwards; opacity:0; }
+  .fade-up-4 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .58s forwards; opacity:0; }
+
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:.1s; }
+  .reveal-delay-2 { transition-delay:.22s; }
+  .reveal-delay-3 { transition-delay:.34s; }
+  .reveal-delay-4 { transition-delay:.46s; }
+
+  .rule { display:inline-block; width:56px; height:2px; background:var(--accent); vertical-align:middle; border-radius:0; }
+  .section { padding:100px 0; position:relative; }
+  .container { max-width:1240px; margin:0 auto; padding:0 60px; }
+  .section-label { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.32em; margin-bottom:14px; color:var(--accent); display:flex; align-items:center; gap:16px; }
+  .section-title { font-family:'Oswald',Impact,sans-serif; font-size:3rem; font-weight:700; line-height:1.08; margin-bottom:18px; color:var(--text); letter-spacing:.02em; text-transform:uppercase; }
+  .section-desc { font-size:1rem; line-height:1.8; max-width:540px; color:var(--text-lt); font-weight:400; }
+
+  /* ─── Navigation ─── */
+  .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 52px; height:80px; background:rgba(14,10,10,0.95); backdrop-filter:blur(20px) saturate(1.4); -webkit-backdrop-filter:blur(20px) saturate(1.4); border-bottom:1px solid #e0303018; transition:box-shadow .4s ease; }
+  .nav.scrolled { box-shadow:0 4px 32px rgba(0,0,0,0.2); }
+  .nav-logo { font-family:'Oswald',Impact,sans-serif; font-size:1.6rem; font-weight:700; color:white; letter-spacing:.06em; text-transform:uppercase; }
+  .nav-logo span { color:var(--accent); font-weight:400; }
+  .nav-links { display:flex; gap:40px; list-style:none; }
+  .nav-links a { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.18em; color:rgba(255,255,255,0.55); transition:color .3s; position:relative; padding-bottom:4px; }
+  .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--accent); transition:width .35s cubic-bezier(.22,1,.36,1); }
+  .nav-links a:hover { color:white; }
+  .nav-links a:hover::after { width:100%; }
+  .nav-cta { display:inline-flex; padding:10px 28px; background:var(--accent); color:white; font-family:'Oswald',sans-serif; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; border-radius:0; transition:transform .3s,background .3s,box-shadow .3s; }
+  .nav-cta:hover { background:var(--accent-dk); transform:translateY(-1px); box-shadow:0 6px 24px #e0303050; }
+
+  /* ─── Free Trial Badge ─── */
+  .trial-badge { position:absolute; top:24px; right:40px; background:var(--accent); color:white; padding:10px 24px; border-radius:0; font-family:'Oswald',sans-serif; font-size:.74rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; z-index:3; display:flex; align-items:center; gap:10px; box-shadow:0 4px 20px #e0303050; animation:pulse-badge 2s ease-in-out infinite; }
+  @keyframes pulse-badge { 0%,100%{box-shadow:0 4px 20px #e0303050} 50%{box-shadow:0 6px 32px #e0303080} }
+  .trial-badge svg { width:18px; height:18px; }
+
+  /* ─── Hero ─── */
+  .hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; overflow:hidden; background:var(--bg); }
+  .hero::before { content:''; position:absolute; inset:0; background:linear-gradient(135deg, #0e0a0aff 0%, #0e0a0acc 40%, transparent 70%); z-index:1; pointer-events:none; }
+  .hero-text { display:flex; flex-direction:column; justify-content:center; padding:120px 80px 80px 80px; position:relative; z-index:2; }
+  .hero-overline { display:flex; align-items:center; gap:16px; margin-bottom:28px; }
+  .hero-overline span { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.35em; color:var(--accent); }
+  .hero h1 { font-family:'Oswald',Impact,sans-serif; font-size:clamp(3rem,5vw,5rem); font-weight:700; color:white; line-height:1.02; margin-bottom:20px; letter-spacing:.02em; text-transform:uppercase; }
+  .hero h1 em { font-style:normal; font-weight:300; color:var(--accent); display:block; }
+  .hero-tagline { font-size:1.05rem; font-weight:400; color:rgba(255,255,255,0.6); line-height:1.7; margin-bottom:36px; max-width:440px; }
+  .hero-ctas { display:flex; gap:16px; margin-bottom:40px; }
+  .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:18px 40px; background:var(--accent); color:white; font-family:'Oswald',sans-serif; font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.16em; border:none; border-radius:0; transition:transform .3s,box-shadow .3s,background .3s; }
+  .btn-primary:hover { background:var(--accent-dk); transform:translateY(-2px); box-shadow:0 12px 36px #e0303050; }
+  .btn-outline { display:inline-flex; align-items:center; gap:10px; padding:18px 40px; background:transparent; color:var(--accent); font-family:'Oswald',sans-serif; font-size:.78rem; font-weight:500; text-transform:uppercase; letter-spacing:.16em; border:2px solid #e0303050; border-radius:0; transition:transform .3s,border-color .3s,color .3s,background .3s; }
+  .btn-outline:hover { border-color:var(--accent); color:white; background:#e0303018; transform:translateY(-2px); }
+  .hero-contact { display:flex; gap:28px; align-items:center; }
+  .hero-contact span { font-size:.72rem; color:rgba(255,255,255,0.4); letter-spacing:.06em; }
+  .hero-img { position:relative; overflow:hidden; }
+  .hero-img img { width:100%; height:100%; object-fit:cover; }
+
+  /* ─── Section Divider (Dumbbell / Lightning) ─── */
+  .section-divider { display:flex; align-items:center; justify-content:center; padding:16px 0; background:var(--bg); }
+  .section-divider svg { width:24px; height:24px; opacity:.25; }
+  .section-divider::before,.section-divider::after { content:''; flex:1; max-width:120px; height:2px; background:var(--accent); opacity:.18; }
+  .section-divider::before { margin-right:20px; }
+  .section-divider::after { margin-left:20px; }
+
+  /* ─── Services ─── */
+  .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:28px; margin-top:56px; }
+  .svc-card { background:var(--surface2); border-radius:0; overflow:hidden; border:1px solid #e0303014; box-shadow:0 4px 20px rgba(0,0,0,0.1); transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s,border-color .4s; }
+  .svc-card:hover { transform:translateY(-8px); box-shadow:0 20px 48px #e0303020; border-color:var(--accent); }
+  .svc-card-img { height:200px; overflow:hidden; }
+  .svc-card-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.22,1,.36,1); }
+  .svc-card:hover .svc-card-img img { transform:scale(1.06); }
+  .svc-card-body { padding:28px; }
+  .svc-card-body h3 { font-family:'Oswald',sans-serif; font-size:1.15rem; font-weight:600; color:var(--text); margin-bottom:10px; text-transform:uppercase; letter-spacing:.04em; }
+  .svc-card-body p { font-size:.88rem; color:var(--text-lt); line-height:1.7; font-weight:400; }
+
+  /* ─── About ─── */
+  .about { background:var(--bg); position:relative; overflow:hidden; }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-text .section-title { font-size:2.6rem; }
+  .about-text p { font-size:1rem; color:var(--text-lt); line-height:1.85; font-weight:400; margin-bottom:20px; max-width:480px; }
+  .about-stats { display:flex; gap:44px; margin-top:32px; padding-top:28px; border-top:2px solid #e0303020; }
+  .about-stat-num { font-family:'Oswald',sans-serif; font-size:2.8rem; font-weight:700; color:var(--accent); line-height:1; letter-spacing:.02em; }
+  .about-stat-label { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.16em; color:var(--text-lt); margin-top:6px; }
+  .about-img { position:relative; border-radius:0; overflow:hidden; height:460px; }
+  .about-img img { width:100%; height:100%; object-fit:cover; }
+  .about-img::after { content:''; position:absolute; inset:0; border:2px solid var(--accent); opacity:.2; pointer-events:none; }
+
+  /* ─── Gallery ─── */
+  .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; }
+  .gallery-item { position:relative; border-radius:0; overflow:hidden; height:300px; cursor:pointer; }
+  .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.22,1,.36,1); }
+  .gallery-item:hover img { transform:scale(1.08); }
+  .gallery-overlay { position:absolute; inset:0; z-index:2; background:linear-gradient(to top,#0e0a0ae8 0%,#0e0a0a40 50%,transparent 100%); display:flex; flex-direction:column; justify-content:flex-end; padding:24px; opacity:0; transition:opacity .4s; }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+  .gallery-overlay h4 { font-family:'Oswald',sans-serif; font-size:1.15rem; font-weight:600; color:white; margin-bottom:4px; text-transform:uppercase; letter-spacing:.04em; }
+  .gallery-overlay span { font-size:.7rem; font-weight:500; color:var(--accent); text-transform:uppercase; letter-spacing:.14em; }
+
+  /* ─── Testimonial ─── */
+  .testimonial { background:var(--bg); position:relative; overflow:hidden; padding:100px 0; }
+  .testimonial::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 50% 80% at 50% 50%,#e0303008 0%,transparent 70%); }
+  .testimonial-inner { position:relative; z-index:2; max-width:780px; margin:0 auto; text-align:center; padding:0 40px; }
+  .testimonial-quote-mark { font-family:'Oswald',sans-serif; font-size:7rem; font-weight:700; color:var(--accent); opacity:.2; line-height:.5; margin-bottom:20px; }
+  .testimonial blockquote { font-family:'Barlow',sans-serif; font-size:1.5rem; font-weight:300; font-style:italic; color:rgba(255,255,255,0.85); line-height:1.65; margin-bottom:32px; }
+  .testimonial-author { font-family:'Oswald',sans-serif; font-size:.82rem; font-weight:500; text-transform:uppercase; letter-spacing:.2em; color:var(--accent); }
+  .testimonial-author span { display:block; margin-top:4px; font-family:'Barlow',sans-serif; font-weight:300; letter-spacing:.12em; color:rgba(255,255,255,0.35); text-transform:none; }
+
+  /* ─── Contact ─── */
+  .contact { background:var(--surface); }
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-top:56px; }
+  .contact-col h3 { font-family:'Oswald',sans-serif; font-size:1.3rem; font-weight:600; color:var(--text); margin-bottom:20px; text-transform:uppercase; letter-spacing:.04em; }
+  .contact-col p { color:var(--text-lt); font-size:.95rem; line-height:1.8; font-weight:400; }
+  .hours-row { display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid #e0303014; font-size:.92rem; }
+  .hours-row .day { font-weight:600; color:var(--text); }
+  .hours-row .time { color:var(--text-lt); font-weight:400; }
+  .hours-row.closed .time { font-style:italic; }
+  .contact-cta { background:var(--bg); border-radius:0; padding:40px; border:2px solid #e0303020; }
+  .contact-cta h3 { font-family:'Oswald',sans-serif; font-size:1.65rem; font-weight:700; color:white; margin-bottom:14px; line-height:1.15; text-transform:uppercase; letter-spacing:.02em; }
+  .contact-cta p { color:rgba(255,255,255,0.6); font-size:.92rem; line-height:1.7; font-weight:400; margin-bottom:28px; }
+  .btn-dark { display:inline-flex; align-items:center; gap:10px; padding:18px 40px; background:var(--accent); color:white; font-family:'Oswald',sans-serif; font-size:.78rem; font-weight:600; text-transform:uppercase; letter-spacing:.16em; border:none; border-radius:0; transition:transform .3s,box-shadow .3s; width:fit-content; }
+  .btn-dark:hover { transform:translateY(-2px); box-shadow:0 12px 36px #e0303050; }
+
+  /* ─── Footer ─── */
+  footer { background:var(--bg); padding:48px 0; text-align:center; position:relative; overflow:hidden; }
+  footer::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--accent),transparent); opacity:.3; }
+  .footer-logo { font-family:'Oswald',Impact,sans-serif; font-size:1.7rem; font-weight:700; color:white; margin-bottom:12px; text-transform:uppercase; letter-spacing:.06em; }
+  .footer-logo span { color:var(--accent); font-weight:400; }
+  .footer-tagline { font-size:.82rem; color:rgba(255,255,255,0.3); margin-bottom:8px; }
+  .footer-copy { font-size:.7rem; color:rgba(255,255,255,0.18); }
+
+  /* ─── Responsive ─── */
+  @media (max-width:1024px) { .svc-grid{grid-template-columns:repeat(2,1fr)} .gallery-grid{grid-template-columns:repeat(2,1fr)} .about-grid{gap:40px} }
+  @media (max-width:768px) {
+    .section{padding:64px 0} .container{padding:0 24px} .section-title{font-size:2.2rem}
+    .nav{padding:0 20px;height:64px} .nav-links{display:none!important} .nav-logo{font-size:1.3rem}
+    .hero{grid-template-columns:1fr;min-height:auto} .hero-text{padding:100px 24px 48px} .hero-img{height:350px}
+    .svc-grid{grid-template-columns:1fr;gap:20px} .svc-card-img{height:180px}
+    .about-grid{grid-template-columns:1fr;gap:32px} .about-img{height:300px}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:16px} .gallery-item{height:240px}
+    .testimonial{padding:64px 0} .testimonial blockquote{font-size:1.25rem}
+    .contact-grid{grid-template-columns:1fr;gap:32px}
+    .trial-badge{top:auto;bottom:20px;right:16px;position:fixed}
+    .section-divider{padding:12px 0}
+  }
+  @media (max-width:480px) {
+    .section{padding:48px 0} .container{padding:0 16px} .section-title{font-size:1.75rem} .section-label{font-size:.6rem}
+    .nav{padding:0 16px;height:56px} .nav-logo{font-size:1.1rem}
+    .hero-text{padding:80px 16px 36px} .hero h1{font-size:2.4rem} .hero-tagline{font-size:.88rem} .hero-ctas{flex-direction:column;gap:12px} .hero-ctas a{width:100%;justify-content:center} .hero-img{height:260px}
+    .svc-card-body{padding:18px} .svc-card-body h3{font-size:1rem}
+    .about-text .section-title{font-size:1.8rem} .about-img{height:240px} .about-stats{flex-direction:column;gap:20px}
+    .gallery-grid{grid-template-columns:1fr} .gallery-item{height:260px} .gallery-overlay{opacity:1}
+    .testimonial blockquote{font-size:1.1rem} .testimonial-quote-mark{font-size:5rem}
+    .contact-cta{padding:28px} .contact-cta h3{font-size:1.4rem}
+    .btn-primary,.btn-outline,.btn-dark{min-height:48px;padding:14px 24px;font-size:.68rem}
+    .trial-badge{font-size:.6rem;padding:8px 16px}
+    footer{padding:32px 0}
+  }
+</style></head><body>
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">Iron <span>Soul Gym</span></a>
+  <ul class="nav-links"><li><a href="#services">Programs</a></li><li><a href="#about">About</a></li><li><a href="#gallery">Facility</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="nav-cta">Start Free Trial</a>
+</nav>
+
+<section class="hero grain">
+  <div class="hero-text">
+    <div class="hero-overline fade-up"><span class="rule"></span><span>Fitness &middot; Strength &middot; Community</span></div>
+    <h1 class="fade-up-1">Unleash<br><em>Your Potential</em></h1>
+    <p class="hero-tagline fade-up-2">your area's premier fitness destination. World-class equipment, expert trainers, and a community that pushes you to be your best. No limits. No excuses.</p>
+    <div class="hero-ctas fade-up-3">
+      <a href="#contact" class="btn-primary">Start Free Trial &rarr;</a>
+      <a href="#services" class="btn-outline">View Programs</a>
+    </div>
+    <div class="hero-contact fade-up-4"><span>+15053973150</span><span>&middot;</span><span>your area</span></div>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1666718622024-dc6bdc808bda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBsb2NhbCUyMGJ1c2luZXNzJTIwaW50ZXJpb3IlMjBtb2Rlcm4lMjBkZXNpZ258ZW58MHwwfHx8MTc3MjIyMTc4Mnww&ixlib=rb-4.1.0&q=80&w=1080&w=800&q=80&w=1920&h=1080&fit=crop" alt="Iron Soul Gym"></div>
+  <div class="trial-badge fade-up-3"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg> Start Free Trial</div>
+</section>
+
+<div class="section-divider"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29z"/></svg></div>
+
+<section class="section" id="services" style="background:var(--surface);">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>What We Offer</div>
+    <div class="section-title reveal">Our Programs</div>
+    <div class="section-desc reveal">Whether you're a beginner or a seasoned athlete, we have the tools, the trainers, and the fire to get you to the next level.</div>
+    <div class="svc-grid"><div class="svc-card reveal reveal-delay-1"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="State-of-the-Art Equipment"></div><div class="svc-card-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:36px;height:36px;color:var(--accent);margin-bottom:12px;"><path d="M6.5 6.5l11 11M6.5 17.5l11-11M2 12h4M18 12h4M12 2v4M12 18v4"/></svg><h3>State-of-the-Art Equipment</h3><p>From free weights to cutting-edge machines, our floor has everything you need to crush your goals. No waiting, no excuses.</p></div></div><div class="svc-card reveal reveal-delay-2"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Personal Training"></div><div class="svc-card-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:36px;height:36px;color:var(--accent);margin-bottom:12px;"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><h3>Personal Training</h3><p>Our certified trainers design custom programs to push you beyond your limits. One-on-one coaching that delivers real results.</p></div></div><div class="svc-card reveal reveal-delay-3"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Group Classes"></div><div class="svc-card-body"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:36px;height:36px;color:var(--accent);margin-bottom:12px;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg><h3>Group Classes</h3><p>High-energy classes from HIIT and spinning to yoga and boxing. Find your tribe and feed off the collective energy.</p></div></div></div>
+  </div>
+</section>
+
+<div class="section-divider"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg></div>
+
+<section class="about section" id="about">
+  <div class="container"><div class="about-grid">
+    <div class="about-img reveal"><img src="" alt="Iron Soul Gym facility"></div>
+    <div class="about-text">
+      <div class="section-label reveal"><span class="rule"></span>About Us</div>
+      <div class="section-title reveal">Built for<br>Results</div>
+      <p class="reveal">Iron Soul Gym isn't just a gym &mdash; it's a training ground. We built this facility for people who refuse to settle. Every piece of equipment, every class, every trainer is chosen to help you break through your limits.</p>
+      <p class="reveal">Join your area's most dedicated fitness community and discover what you're truly capable of. Your transformation starts here.</p>
+      <div class="about-stats reveal">
+        <div><div class="about-stat-num">500+</div><div class="about-stat-label">Active Members</div></div>
+        <div><div class="about-stat-num">12</div><div class="about-stat-label">Expert Trainers</div></div>
+        <div><div class="about-stat-num">50+</div><div class="about-stat-label">Weekly Classes</div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="gallery" style="background:var(--surface);">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>Our Facility</div>
+    <div class="section-title reveal">See the Space</div>
+    <div class="section-desc reveal">Tour our your area facility &mdash; built from the ground up for serious training and serious results.</div>
+    <div class="gallery-grid"><div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&q=80" alt="Weight Room"><div class="gallery-overlay"><h4>Weight Room</h4><span>Fully Loaded</span></div></div><div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80" alt="Group Class"><div class="gallery-overlay"><h4>Group Class</h4><span>High Energy</span></div></div><div class="gallery-item reveal reveal-delay-3"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="Personal Training"><div class="gallery-overlay"><h4>Personal Training</h4><span>1-on-1 Coaching</span></div></div><div class="gallery-item reveal reveal-delay-4"><img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?w=600&q=80" alt="Cardio Zone"><div class="gallery-overlay"><h4>Cardio Zone</h4><span>Peak Performance</span></div></div></div>
+  </div>
+</section>
+
+<section class="testimonial grain">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-quote-mark">&ldquo;</div>
+    <blockquote>Joining Iron Soul Gym was the best decision I ever made. I've lost 40 pounds, gained real strength, and found a community that holds me accountable. The trainers here don't let you quit on yourself. This place changed my life.</blockquote>
+    <div class="testimonial-author">A Transformed Member<span>Member for 14 months &mdash; your area</span></div>
+  </div>
+</section>
+
+<section class="contact section" id="contact">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>Get Started</div>
+    <div class="section-title reveal">Join the<br>Movement</div>
+    <div class="contact-grid">
+      <div class="contact-col reveal reveal-delay-1"><h3>Find Us</h3><p>your area<br><br><strong style="color:var(--text);font-weight:600;">+15053973150</strong></p></div>
+      <div class="contact-col reveal reveal-delay-2"><h3>Hours</h3><div class="hours-row"><span class="day">Mon – Fri</span><span class="time">5am – 10pm</span></div><div class="hours-row"><span class="day">Saturday</span><span class="time">6am – 8pm</span></div><div class="hours-row"><span class="day">Sunday</span><span class="time">7am – 6pm</span></div></div>
+      <div class="contact-cta reveal reveal-delay-3">
+        <h3>Ready to Transform?</h3>
+        <p>Start your free trial today. No commitment, no pressure &mdash; just results. Walk in and see what you've been missing.</p>
+        <a href="#" class="btn-dark">Start Free Trial &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Iron <span>Soul Gym</span></div>
+  <p class="footer-tagline">Proudly serving your area and surrounding areas</p>
+  <p class="footer-copy">&copy; 2026 Iron Soul Gym &middot; All rights reserved &middot; Photos for demonstration only</p>
+</footer>
+
+<script>
+var ro=document.querySelectorAll('.reveal');
+var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');ob.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ro.forEach(function(el){ob.observe(el)});
+var nv=document.getElementById('nav');var tk=false;
+window.addEventListener('scroll',function(){if(!tk){window.requestAnimationFrame(function(){nv.classList.toggle('scrolled',window.scrollY>60);tk=false});tk=true}});
+</script>
+
+</body></html>
