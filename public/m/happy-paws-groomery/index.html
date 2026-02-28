@@ -1,0 +1,265 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Paws Groomery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; }
+  body { font-family:'Nunito',system-ui,sans-serif; color:#2a2020; background:#ffffff; -webkit-font-smoothing:antialiased; overflow-x:hidden; }
+  img { max-width:100%; display:block; }
+  a { text-decoration:none; color:inherit; }
+
+  :root { --bg:#fdf8f5; --bg2:#f8ece8; --accent:#e07050; --accent-dk:#c05838; --accent-lt:#f09878; --surface:#ffffff; --text:#2a2020; --text-lt:#9a7878; }
+
+  @keyframes grain { 0%,100%{transform:translate(0,0)} 10%{transform:translate(-2%,-3%)} 30%{transform:translate(3%,2%)} 50%{transform:translate(-1%,4%)} 70%{transform:translate(4%,-1%)} 90%{transform:translate(-3%,3%)} }
+  .grain::after { content:''; position:absolute; inset:-50%; width:200%; height:200%; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E"); opacity:0.03; pointer-events:none; animation:grain 8s steps(10) infinite; z-index:1; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(32px)} to{opacity:1;transform:translateY(0)} }
+  .fade-up   { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) forwards; }
+  .fade-up-1 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .12s forwards; opacity:0; }
+  .fade-up-2 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .28s forwards; opacity:0; }
+  .fade-up-3 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .42s forwards; opacity:0; }
+  .fade-up-4 { animation:fadeUp .8s cubic-bezier(.22,1,.36,1) .58s forwards; opacity:0; }
+
+  .reveal { opacity:0; transform:translateY(36px); transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1); }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:.1s; }
+  .reveal-delay-2 { transition-delay:.22s; }
+  .reveal-delay-3 { transition-delay:.34s; }
+  .reveal-delay-4 { transition-delay:.46s; }
+
+  .rule { display:inline-block; width:56px; height:1.5px; background:var(--accent); vertical-align:middle; border-radius:1px; }
+  .section { padding:100px 0; position:relative; }
+  .container { max-width:1240px; margin:0 auto; padding:0 60px; }
+  .section-label { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.28em; margin-bottom:14px; color:var(--accent); display:flex; align-items:center; gap:16px; }
+  .section-title { font-family:'Quicksand',sans-serif; font-size:2.8rem; font-weight:700; line-height:1.15; margin-bottom:18px; color:var(--text); letter-spacing:-.01em; }
+  .section-desc { font-size:1rem; line-height:1.8; max-width:520px; color:var(--text-lt); font-weight:400; }
+
+  /* ── Nav ── */
+  .nav { position:fixed; top:0; left:0; right:0; z-index:100; display:flex; align-items:center; justify-content:space-between; padding:0 52px; height:80px; background:rgba(253,248,245,0.95); backdrop-filter:blur(20px) saturate(1.4); -webkit-backdrop-filter:blur(20px) saturate(1.4); border-bottom:1px solid #e0705014; transition:box-shadow .4s ease; }
+  .nav.scrolled { box-shadow:0 4px 32px rgba(0,0,0,0.06); }
+  .nav-logo { font-family:'Quicksand',sans-serif; font-size:1.55rem; font-weight:700; color:var(--text); letter-spacing:.01em; }
+  .nav-logo span { color:var(--accent); font-weight:500; }
+  .nav-links { display:flex; gap:40px; list-style:none; }
+  .nav-links a { font-size:.7rem; font-weight:600; text-transform:uppercase; letter-spacing:.16em; color:var(--text-lt); transition:color .3s; position:relative; padding-bottom:4px; }
+  .nav-links a::after { content:''; position:absolute; bottom:0; left:0; width:0; height:2px; background:var(--accent); border-radius:2px; transition:width .35s cubic-bezier(.22,1,.36,1); }
+  .nav-links a:hover { color:var(--text); }
+  .nav-links a:hover::after { width:100%; }
+  .nav-cta { display:inline-flex; padding:10px 28px; background:var(--accent); color:white; font-size:.68rem; font-weight:700; text-transform:uppercase; letter-spacing:.12em; border-radius:24px; transition:transform .3s,background .3s; }
+  .nav-cta:hover { background:var(--accent-dk); transform:translateY(-1px); }
+
+  /* ── Hero (LIGHT) ── */
+  .hero { position:relative; min-height:100vh; display:grid; grid-template-columns:1fr 1fr; overflow:hidden; background:var(--bg); }
+  .hero::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 70% 60% at 20% 80%,#e0705012 0%,transparent 70%); pointer-events:none; z-index:1; }
+  .hero-text { position:relative; z-index:2; display:flex; flex-direction:column; justify-content:center; padding:120px 80px 80px 80px; }
+  .hero-overline { display:flex; align-items:center; gap:16px; margin-bottom:28px; }
+  .hero-overline span { font-size:.68rem; font-weight:600; text-transform:uppercase; letter-spacing:.3em; color:var(--accent); }
+  .hero h1 { font-family:'Quicksand',sans-serif; font-size:clamp(3.5rem,6.0vw,5.0rem); font-weight:700; color:var(--text); line-height:1.1; margin-bottom:16px; letter-spacing:-.02em; }
+  .hero h1 em { font-style:normal; color:var(--accent); }
+  .hero-tagline { font-size:1.05rem; font-weight:400; color:var(--text-lt); line-height:1.7; margin-bottom:36px; max-width:420px; }
+  .hero-ctas { display:flex; gap:16px; margin-bottom:40px; }
+  .btn-primary { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:var(--accent); color:white; font-family:'Nunito',sans-serif; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; border:none; border-radius:28px; transition:transform .3s,box-shadow .3s,background .3s; }
+  .btn-primary:hover { background:var(--accent-dk); transform:translateY(-2px); box-shadow:0 12px 32px #e0705040; }
+  .btn-outline { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:transparent; color:var(--accent); font-family:'Nunito',sans-serif; font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; border:1.5px solid #e0705040; border-radius:28px; transition:transform .3s,border-color .3s,color .3s; }
+  .btn-outline:hover { border-color:var(--accent); color:var(--text); transform:translateY(-2px); }
+  .hero-contact { display:flex; gap:28px; align-items:center; }
+  .hero-contact span { font-size:.72rem; color:var(--text-lt); letter-spacing:.04em; }
+  .hero-img { position:relative; overflow:hidden; }
+  .hero-img img { width:100%; height:100%; object-fit:cover; }
+
+  /* ── Paw Print Divider ── */
+  .section-divider { display:flex; align-items:center; justify-content:center; padding:16px 0; }
+  .section-divider svg { width:24px; height:24px; opacity:.22; }
+  .section-divider::before,.section-divider::after { content:''; flex:1; max-width:120px; height:1.5px; background:var(--accent); opacity:.18; border-radius:1px; }
+  .section-divider::before { margin-right:20px; }
+  .section-divider::after { margin-left:20px; }
+
+  /* ── Services ── */
+  .svc-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:32px; margin-top:56px; }
+  .svc-card { background:white; border-radius:16px; overflow:hidden; border:1px solid #e0705014; box-shadow:0 4px 20px rgba(0,0,0,0.03); transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s; }
+  .svc-card:hover { transform:translateY(-8px); box-shadow:0 20px 48px #e0705018; }
+  .svc-card-img { height:220px; overflow:hidden; }
+  .svc-card-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.22,1,.36,1); }
+  .svc-card:hover .svc-card-img img { transform:scale(1.06); }
+  .svc-card-body { padding:28px; }
+  .svc-card-body h3 { font-family:'Quicksand',sans-serif; font-size:1.25rem; font-weight:700; color:var(--text); margin-bottom:10px; }
+  .svc-card-body p { font-size:.88rem; color:var(--text-lt); line-height:1.7; font-weight:400; }
+
+  /* ── About ── */
+  .about { background:var(--bg2); position:relative; overflow:hidden; }
+  .about-grid { display:grid; grid-template-columns:1fr 1fr; gap:64px; align-items:center; }
+  .about-text .section-title { font-size:2.5rem; }
+  .about-text p { font-size:1rem; color:var(--text-lt); line-height:1.85; font-weight:400; margin-bottom:20px; max-width:480px; }
+  .about-stats { display:flex; gap:40px; margin-top:32px; padding-top:28px; border-top:1.5px solid #e0705018; }
+  .about-stat-num { font-family:'Quicksand',sans-serif; font-size:2.4rem; font-weight:700; color:var(--accent); line-height:1; }
+  .about-stat-label { font-size:.72rem; font-weight:600; text-transform:uppercase; letter-spacing:.14em; color:var(--text-lt); margin-top:6px; }
+  .about-img { position:relative; border-radius:16px; overflow:hidden; height:440px; }
+  .about-img img { width:100%; height:100%; object-fit:cover; }
+
+  /* ── Gallery ── */
+  .gallery-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:20px; margin-top:56px; }
+  .gallery-item { position:relative; border-radius:14px; overflow:hidden; height:280px; cursor:pointer; }
+  .gallery-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.22,1,.36,1); }
+  .gallery-item:hover img { transform:scale(1.08); }
+  .gallery-overlay { position:absolute; inset:0; z-index:2; background:linear-gradient(to top,#c05838d0 0%,#c0583840 50%,transparent 100%); display:flex; flex-direction:column; justify-content:flex-end; padding:24px; opacity:0; transition:opacity .4s; }
+  .gallery-item:hover .gallery-overlay { opacity:1; }
+  .gallery-overlay h4 { font-family:'Quicksand',sans-serif; font-size:1.15rem; font-weight:700; color:white; margin-bottom:4px; }
+  .gallery-overlay span { font-size:.7rem; font-weight:500; color:var(--accent-lt); text-transform:uppercase; letter-spacing:.12em; }
+
+  /* ── Testimonial ── */
+  .testimonial { background:var(--accent); position:relative; overflow:hidden; padding:100px 0; }
+  .testimonial::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 50% 80% at 20% 50%,rgba(255,255,255,0.08) 0%,transparent 70%); }
+  .testimonial-inner { position:relative; z-index:2; max-width:760px; margin:0 auto; text-align:center; padding:0 40px; }
+  .testimonial-quote-mark { font-family:'Quicksand',sans-serif; font-size:6rem; font-weight:700; color:rgba(255,255,255,0.25); line-height:.5; margin-bottom:20px; }
+  .testimonial blockquote { font-family:'Quicksand',sans-serif; font-size:1.5rem; font-weight:500; color:rgba(255,255,255,0.92); line-height:1.6; margin-bottom:32px; }
+  .testimonial-author { font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.18em; color:rgba(255,255,255,0.7); }
+  .testimonial-author span { display:block; margin-top:4px; font-weight:400; letter-spacing:.12em; color:rgba(255,255,255,0.35); text-transform:none; }
+
+  /* ── Contact ── */
+  .contact-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:48px; margin-top:56px; }
+  .contact-col h3 { font-family:'Quicksand',sans-serif; font-size:1.4rem; font-weight:700; color:var(--text); margin-bottom:20px; }
+  .contact-col p { color:var(--text-lt); font-size:.95rem; line-height:1.8; font-weight:400; }
+  .hours-row { display:flex; justify-content:space-between; padding:14px 0; border-bottom:1px solid #e0705014; font-size:.92rem; }
+  .hours-row .day { font-weight:600; color:var(--text); }
+  .hours-row .time { color:var(--text-lt); font-weight:400; }
+  .hours-row.closed .time { font-style:italic; }
+  .contact-cta { background:var(--bg2); border-radius:16px; padding:40px; border:1px solid #e0705014; }
+  .contact-cta h3 { font-family:'Quicksand',sans-serif; font-size:1.7rem; font-weight:700; color:var(--text); margin-bottom:14px; line-height:1.25; }
+  .contact-cta p { color:var(--text-lt); font-size:.92rem; line-height:1.7; font-weight:400; margin-bottom:28px; }
+  .btn-dark { display:inline-flex; align-items:center; gap:10px; padding:16px 36px; background:var(--accent); color:white; font-family:'Nunito',sans-serif; font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.14em; border:none; border-radius:28px; transition:transform .3s,box-shadow .3s; width:fit-content; }
+  .btn-dark:hover { transform:translateY(-2px); box-shadow:0 12px 32px #e0705040; }
+
+  /* ── Footer ── */
+  footer { background:var(--accent-dk); padding:48px 0; text-align:center; position:relative; overflow:hidden; }
+  footer::before { content:''; position:absolute; top:0; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--accent-lt),transparent); opacity:.2; }
+  .footer-logo { font-family:'Quicksand',sans-serif; font-size:1.6rem; font-weight:700; color:white; margin-bottom:12px; }
+  .footer-logo span { color:var(--accent-lt); }
+  .footer-tagline { font-size:.82rem; color:rgba(255,255,255,0.45); margin-bottom:8px; }
+  .footer-copy { font-size:.7rem; color:rgba(255,255,255,0.25); }
+
+  /* ── Responsive ── */
+  @media (max-width:1024px) { .svc-grid{grid-template-columns:repeat(2,1fr)} .gallery-grid{grid-template-columns:repeat(2,1fr)} .about-grid{gap:40px} }
+  @media (max-width:768px) {
+    .section{padding:64px 0} .container{padding:0 24px} .section-title{font-size:2rem}
+    .nav{padding:0 20px;height:64px} .nav-links{display:none!important} .nav-logo{font-size:1.2rem}
+    .hero{grid-template-columns:1fr;min-height:auto} .hero-text{padding:100px 24px 48px} .hero-img{height:350px}
+    .svc-grid{grid-template-columns:1fr;gap:20px} .svc-card-img{height:180px}
+    .about-grid{grid-template-columns:1fr;gap:32px} .about-img{height:300px}
+    .gallery-grid{grid-template-columns:repeat(2,1fr);gap:16px} .gallery-item{height:220px}
+    .testimonial{padding:64px 0} .testimonial blockquote{font-size:1.25rem}
+    .contact-grid{grid-template-columns:1fr;gap:32px}
+  }
+  @media (max-width:480px) {
+    .section{padding:48px 0} .container{padding:0 16px} .section-title{font-size:1.65rem} .section-label{font-size:.6rem}
+    .nav{padding:0 16px;height:56px} .nav-logo{font-size:1.05rem}
+    .hero-text{padding:80px 16px 36px} .hero h1{font-size:2.5rem} .hero-tagline{font-size:.88rem} .hero-ctas{flex-direction:column;gap:12px} .hero-ctas a{width:100%;justify-content:center} .hero-img{height:260px}
+    .svc-card-body{padding:18px} .svc-card-body h3{font-size:1.05rem}
+    .about-text .section-title{font-size:1.6rem} .about-img{height:240px} .about-stats{flex-direction:column;gap:20px}
+    .gallery-grid{grid-template-columns:1fr} .gallery-item{height:240px} .gallery-overlay{opacity:1}
+    .testimonial blockquote{font-size:1.1rem} .testimonial-quote-mark{font-size:4rem}
+    .contact-cta{padding:28px} .contact-cta h3{font-size:1.4rem}
+    .btn-primary,.btn-outline,.btn-dark{min-height:48px;padding:14px 24px;font-size:.68rem}
+    footer{padding:32px 0}
+  }
+</style></head><body>
+
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">Happy <span>Paws Groomery</span></a>
+  <ul class="nav-links"><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#contact">Contact</a></li></ul>
+  <a href="#contact" class="nav-cta">Book Grooming</a>
+</nav>
+
+<section class="hero grain">
+  <div class="hero-text">
+    <div class="hero-overline fade-up"><span class="rule"></span><span>Pet Grooming &middot; Spa</span></div>
+    <h1 class="fade-up-1">Where Every Pet<br>Leaves <em>Happy</em></h1>
+    <p class="hero-tagline fade-up-2">Every pet deserves to shine. Happy Paws Groomery is your area&rsquo;s trusted pet grooming salon &mdash; gentle hands, premium products, and happy tails guaranteed.</p>
+    <div class="hero-ctas fade-up-3">
+      <a href="#contact" class="btn-primary">Book Grooming &rarr;</a>
+      <a href="#services" class="btn-outline">Our Services</a>
+    </div>
+    <div class="hero-contact fade-up-4"><span>(505) 397-3150</span><span>&middot;</span><span>your area</span></div>
+  </div>
+  <div class="hero-img"><img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=1920&q=80" alt="Happy Paws Groomery"></div>
+</section>
+
+<div class="section-divider"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3.5-3c-.83 0-1.5.67-1.5 1.5S7.67 10 8.5 10 10 9.33 10 8.5 9.33 7 8.5 7zm7 0c-.83 0-1.5.67-1.5 1.5S14.67 10 15.5 10 17 9.33 17 8.5 16.33 7 15.5 7zm-10 4c-.83 0-1.5.67-1.5 1.5S4.67 14 5.5 14 7 13.33 7 12.5 6.33 11 5.5 11zm13 0c-.83 0-1.5.67-1.5 1.5S17.67 14 18.5 14 20 13.33 20 12.5 19.33 11 18.5 11z"/></svg></div>
+
+<section class="section" id="services" style="background:white;">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>What We Offer</div>
+    <div class="section-title reveal">Our Grooming Services</div>
+    <div class="section-desc reveal">From full grooming packages to luxurious spa treatments &mdash; your furry family member deserves the very best.</div>
+    <div class="svc-grid"><div class="svc-card reveal reveal-delay-1"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=600&q=80" alt="Full Grooming"></div><div class="svc-card-body"><h3>Full Grooming</h3><p>Complete grooming package including bath, haircut, nail trim, ear cleaning, and finishing spritz. Your pet leaves looking and feeling their best.</p></div></div><div class="svc-card reveal reveal-delay-2"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1591946614720-90a587da4a36?auto=format&fit=crop&w=600&q=80" alt="Spa Treatments"></div><div class="svc-card-body"><h3>Spa Treatments</h3><p>Pamper your furry friend with our luxurious spa services — deep conditioning, de-shedding treatments, teeth brushing, and soothing paw balm.</p></div></div><div class="svc-card reveal reveal-delay-3"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?auto=format&fit=crop&w=600&q=80" alt="Gentle & Caring"></div><div class="svc-card-body"><h3>Gentle & Caring</h3><p>Specialized gentle grooming for puppies, seniors, and anxious pets. We take extra time and care to ensure every pet feels safe and comfortable.</p></div></div></div>
+  </div>
+</section>
+
+<div class="section-divider"><svg viewBox="0 0 24 24" fill="currentColor" style="color:var(--accent);"><path d="M12 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-3.5-3c-.83 0-1.5.67-1.5 1.5S7.67 10 8.5 10 10 9.33 10 8.5 9.33 7 8.5 7zm7 0c-.83 0-1.5.67-1.5 1.5S14.67 10 15.5 10 17 9.33 17 8.5 16.33 7 15.5 7zm-10 4c-.83 0-1.5.67-1.5 1.5S4.67 14 5.5 14 7 13.33 7 12.5 6.33 11 5.5 11zm13 0c-.83 0-1.5.67-1.5 1.5S17.67 14 18.5 14 20 13.33 20 12.5 19.33 11 18.5 11z"/></svg></div>
+
+<section class="about section" id="about">
+  <div class="container"><div class="about-grid">
+    <div class="about-img reveal"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=800&q=80" alt="Happy Paws Groomery studio"></div>
+    <div class="about-text">
+      <div class="section-label reveal"><span class="rule"></span>About Us</div>
+      <div class="section-title reveal">Love, Care &<br>Happy Tails</div>
+      <p class="reveal">At Happy Paws Groomery, we treat every pet like family. Our trained groomers combine gentle techniques with premium, pet-safe products to keep your furry friends looking and feeling fantastic.</p>
+      <p class="reveal">Conveniently located in your area, our bright, welcoming salon is designed to make every pet &mdash; and their owner &mdash; feel right at home from the moment they walk in.</p>
+      <div class="about-stats reveal">
+        <div><div class="about-stat-num">5k+</div><div class="about-stat-label">Pets Groomed</div></div>
+        <div><div class="about-stat-num">10+</div><div class="about-stat-label">Years</div></div>
+        <div><div class="about-stat-num">4.9</div><div class="about-stat-label">Rating</div></div>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="section" id="gallery" style="background:white;">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>Our Work</div>
+    <div class="section-title reveal">Happy Pets, Happy Parents</div>
+    <div class="section-desc reveal">A peek at some of the adorable faces that visit us at Happy Paws Groomery in your area.</div>
+    <div class="gallery-grid"><div class="gallery-item reveal reveal-delay-1"><img src="https://images.unsplash.com/photo-1587300003388-59208cc962cb?w=600&q=80" alt="Fluffy & Fresh"><div class="gallery-overlay"><h4>Fluffy & Fresh</h4><span>Dog Grooming</span></div></div><div class="gallery-item reveal reveal-delay-2"><img src="https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?w=600&q=80" alt="Purr-fect Care"><div class="gallery-overlay"><h4>Purr-fect Care</h4><span>Cat Grooming</span></div></div><div class="gallery-item reveal reveal-delay-3"><img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?w=600&q=80" alt="Splish Splash"><div class="gallery-overlay"><h4>Splish Splash</h4><span>Dog Bath</span></div></div><div class="gallery-item reveal reveal-delay-4"><img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?w=600&q=80" alt="Happy Tails"><div class="gallery-overlay"><h4>Happy Tails</h4><span>Happy Pet Owner</span></div></div></div>
+  </div>
+</section>
+
+<section class="testimonial grain">
+  <div class="testimonial-inner reveal">
+    <div class="testimonial-quote-mark">&ldquo;</div>
+    <blockquote>I wouldn&rsquo;t trust anyone else with my pup. The team at Happy Paws Groomery is so gentle and caring &mdash; my dog actually gets excited when we pull into the parking lot! They always do an incredible job and treat every pet like their own.</blockquote>
+    <div class="testimonial-author">A Happy Pet Parent<span>Loyal Customer &mdash; your area</span></div>
+  </div>
+</section>
+
+<section class="contact section" id="contact" style="background:var(--surface);">
+  <div class="container">
+    <div class="section-label reveal"><span class="rule"></span>Get In Touch</div>
+    <div class="section-title reveal">Book Your Pet&rsquo;s<br>Grooming Session</div>
+    <div class="contact-grid">
+      <div class="contact-col reveal reveal-delay-1"><h3>Visit Us</h3><p>your area<br><br><strong style="color:var(--text);font-weight:600;">(505) 397-3150</strong></p></div>
+      <div class="contact-col reveal reveal-delay-2"><h3>Hours</h3><div class="hours-row"><span class="day">Mon – Fri</span><span class="time">8am – 6pm</span></div><div class="hours-row"><span class="day">Saturday</span><span class="time">9am – 5pm</span></div><div class="hours-row closed"><span class="day">Sunday</span><span class="time">Closed</span></div></div>
+      <div class="contact-cta reveal reveal-delay-3">
+        <h3>Ready to Pamper<br>Your Pet?</h3>
+        <p>Book a grooming session today and let your furry friend leave looking &amp; feeling amazing.</p>
+        <a href="#" class="btn-dark">Book Grooming &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Happy <span>Paws Groomery</span></div>
+  <p class="footer-tagline">Proudly serving your area and surrounding areas</p>
+  <p class="footer-copy">&copy; 2026 Happy Paws Groomery &middot; All rights reserved &middot; Photos for demonstration only</p>
+</footer>
+
+<script>
+var ro=document.querySelectorAll('.reveal');
+var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');ob.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ro.forEach(function(el){ob.observe(el)});
+var nv=document.getElementById('nav');var tk=false;
+window.addEventListener('scroll',function(){if(!tk){window.requestAnimationFrame(function(){nv.classList.toggle('scrolled',window.scrollY>60);tk=false});tk=true}});
+</script>
+
+</body></html>
