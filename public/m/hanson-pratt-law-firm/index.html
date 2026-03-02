@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hanson & Pratt Law Firm — professional local business services. Contact us today.">
+<meta name="description" content="Hanson & Pratt Law Firm provides expert legal services including family law, estate planning, and business law. Trusted local attorneys committed to your success.">
 <title>Hanson & Pratt Law Firm</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:wght@400;500;600;700;800&family=Lato:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
-<script>tailwind.config = { theme: { extend: { colors: { primary: '#0c1420', secondary: '#182030', accent: '#c8a040', bg: '#faf8f0', ink: '#182030' }, fontFamily: { heading: ['Playfair Display', 'serif'], body: ['Lato', 'sans-serif'] }, borderRadius: { brand: '8px' }, spacing: { section: '80px' } } } }</script>
+<script>tailwind.config = { theme: { extend: { colors: { primary: '#0F284B', secondary: '#D3D7DF', accent: '#B8860B', bg: '#F8F8F8', ink: '#333333' }, fontFamily: { heading: ['DM Serif Display', 'serif'], body: ['Lato', 'sans-serif'] }, borderRadius: { brand: '8px' }, spacing: { section: '100px' } } } }</script>
 <style>
     html { scroll-behavior: smooth; }
 
@@ -40,99 +40,90 @@
     
     .reveal { opacity: 0; transition: opacity 0.6s ease, transform 0.6s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
-    .reveal { transform: translateY(28px); }
     .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
-    .reveal-delay-4 { transition-delay: 0.4s; }
-    .reveal-delay-5 { transition-delay: 0.5s; }
-    .reveal-delay-6 { transition-delay: 0.6s; }</style>
+    .reveal-delay-2 { transition-delay: 0.15s; }
+    .reveal-delay-3 { transition-delay: 0.2s; }</style>
 </head>
 <body class="font-body text-ink bg-bg antialiased leading-relaxed">
 <nav class="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-12 h-[72px] bg-white/55 backdrop-blur-[20px] border-b border-white/25 transition-all duration-300" id="nav">
   <div class="font-heading text-xl font-bold text-primary">Hanson & Pratt Law Firm</div>
-  <ul class="hidden md:flex gap-7 list-none"><li><a href="#services" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Services</a></li><li><a href="#about" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">About</a></li><li><a href="#gallery" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Gallery</a></li><li><a href="#testimonials" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Reviews</a></li><li><a href="#contact" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Contact</a></li></ul>
-  <a href="tel:5053973150" class="text-white px-6 py-2.5 rounded-brand text-[0.78rem] font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 truncate max-w-[180px]" style="background: linear-gradient(135deg, #c8a040, #c8a040dd)">Get Started Today</a>
+  <ul class="hidden md:flex gap-7 list-none"><li><a href="#services" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Services</a></li><li><a href="#about" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">About</a></li><li><a href="#testimonials" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Reviews</a></li><li><a href="#gallery" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Gallery</a></li><li><a href="#contact" class="text-[0.82rem] font-medium tracking-wide text-ink/70 uppercase hover:text-accent hover:opacity-100 transition-all duration-300">Contact</a></li></ul>
+  <a href="tel:5053973150" class="text-white px-6 py-2.5 rounded-brand text-[0.78rem] font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 truncate max-w-[180px]" style="background: linear-gradient(135deg, #B8860B, #B8860Bdd)">Schedule a Consultation</a>
 </nav>
-<section class="bg-primary text-white min-h-screen flex items-center relative overflow-hidden" id="hero">
-  <div class="relative z-[1] max-w-[1200px] mx-auto px-12 pt-[120px] pb-20 max-w-[800px]">
-    <h1 class="font-heading font-extrabold leading-[1.02] tracking-tight mb-6 reveal" style="font-size: clamp(3rem, 6vw, 5rem);">Professional Solutions</h1>
-    <p class="text-lg opacity-90 leading-relaxed mb-9 max-w-[540px] reveal">Dedicated to delivering exceptional results for every client.</p>
+<section class="grid grid-cols-1 md:grid-cols-2 min-h-screen items-center" id="hero">
+  <div class="pt-[120px] px-[60px] pb-20">
+    <h1 class="font-heading text-primary font-extrabold leading-[1.02] tracking-tight mb-6 reveal" style="font-size: clamp(3.2rem, 6vw, 5rem);">Expert Legal Guidance, Local Trust.</h1>
+    <p class="text-ink/80 text-lg leading-relaxed mb-9 max-w-[540px] reveal">Providing compassionate and effective legal solutions tailored to our community's needs.</p>
     
     <div class="flex gap-4 flex-wrap">
-      <a href="#contact" class="inline-flex items-center gap-2 text-white px-9 py-4 rounded-brand text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 hover:brightness-110" style="background: linear-gradient(135deg, #c8a040, #c8a040bb); box-shadow: 0 4px 20px #c8a04055">Get Started Today</a>
-      <a href="#services" class="inline-flex items-center gap-2 bg-transparent text-white px-9 py-4 rounded-brand border-[1.5px] border-white/40 text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:bg-white/10 hover:border-white">Learn More</a>
+      <a href="#contact" class="inline-flex items-center gap-2 text-white px-9 py-4 rounded-brand text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 hover:brightness-110" style="background: linear-gradient(135deg, #B8860B, #B8860Bbb); box-shadow: 0 4px 20px #B8860B55">Schedule a Consultation</a>
+      <a href="#services" class="inline-flex items-center gap-2 bg-transparent text-primary px-9 py-4 rounded-brand border-[1.5px] border-primary/30 text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:text-accent hover:border-accent hover:bg-accent/5">Meet Our Team</a>
     </div>
   </div>
+  <div class="h-full min-h-screen bg-cover bg-center" style="background-image: url('images/e06f239b1850.png')"></div>
 </section>
 <div class="w-full overflow-hidden leading-[0] relative -my-px">
   <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="block w-full h-12">
     <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z"
-          fill="#faf8f0" opacity="0.6"/>
+          fill="#F8F8F8" opacity="0.6"/>
     <path d="M0,32 C240,48 480,16 720,32 C960,48 1200,16 1440,32 L1440,48 L0,48 Z"
-          fill="#faf8f0"/>
+          fill="#F8F8F8"/>
   </svg>
 </div>
 <section class="py-section relative bg-primary/[0.03]" id="services">
   <div class="max-w-[1200px] mx-auto px-12">
     <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">What We Offer</div>
-    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Services</h2>
+    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Expertise</h2>
     
-    <div class="mt-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10">
       
-      <div class="flex items-start gap-6 py-7 border-b border-black/[0.07] reveal reveal-delay-1">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">01</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#11088;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">Expert Consultation</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">Personalized guidance from experienced professionals.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-1">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">👨‍👩‍👧‍👦</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Family Law</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">Navigate complex family matters with compassionate and effective legal support.</p>
         </div>
       </div>
-      <div class="flex items-start gap-6 py-7 border-b border-black/[0.07] reveal reveal-delay-2">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">02</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#128736;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">Full-Service Solutions</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">End-to-end service from start to finish.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-2">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">📜</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Estate Planning</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">Secure your legacy and future with comprehensive wills, trusts, and power of attorney.</p>
         </div>
       </div>
-      <div class="flex items-start gap-6 py-7 border-b border-black/[0.07] reveal reveal-delay-3">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">03</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#9200;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">Fast Turnaround</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">Efficient service without sacrificing quality.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-3">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">🏡</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Real Estate Law</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">Receive expert counsel for property transactions, disputes, and landlord-tenant issues.</p>
         </div>
       </div>
-      <div class="flex items-start gap-6 py-7 border-b border-black/[0.07] reveal reveal-delay-4">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">04</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#128176;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">Competitive Pricing</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">Transparent pricing with no hidden fees.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-4">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">💼</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Business Law</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">From formation to litigation, we support your business with strategic legal advice.</p>
         </div>
       </div>
-      <div class="flex items-start gap-6 py-7 border-b border-black/[0.07] reveal reveal-delay-5">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">05</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#128222;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">24/7 Support</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">We're here whenever you need us.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-5">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">🤝</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Personal Injury</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">Advocating for your rights to fair compensation after an accident or injury.</p>
         </div>
       </div>
-      <div class="flex items-start gap-6 py-7 reveal reveal-delay-6">
-        <div class="font-heading text-5xl font-extrabold text-accent/25 leading-none shrink-0 min-w-[56px] text-right">06</div>
-        <span class="text-[1.6rem] shrink-0 mt-1">&#9989;</span>
-        <div>
-          <h3 class="font-heading text-[1.05rem] font-semibold mb-1.5 text-primary">Satisfaction Guaranteed</h3>
-          <p class="text-sm text-ink/70 leading-relaxed">Your complete satisfaction is our top priority.</p>
+      <div class="bg-white rounded-brand shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 overflow-hidden reveal reveal-delay-6">
+        <div class="p-7">
+          <span class="text-[2rem] mb-3.5 block">⚖️</span>
+          <h3 class="font-heading text-[1.1rem] font-semibold mb-2 text-primary">Civil Litigation</h3>
+          <p class="text-sm text-ink/75 leading-relaxed">Representing you vigorously in court for various civil disputes and claims.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="flex items-center justify-center h-px relative overflow-visible">
-  <div class="w-[120px] h-[2px]" style="background: linear-gradient(90deg, transparent, #c8a040, transparent)"></div>
+  <div class="w-[120px] h-[2px]" style="background: linear-gradient(90deg, transparent, #B8860B, transparent)"></div>
 </div>
 <section class="py-section bg-bg" id="about">
   <div class="max-w-[1200px] mx-auto px-12">
@@ -140,83 +131,88 @@
       <div>
         <div class="w-10 h-[3px] bg-accent mb-4 rounded-sm"></div>
         <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Our Story</div>
-        <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary reveal">About Hanson & Pratt Law Firm</h2>
-        <p class="text-ink/80 leading-[1.8] reveal">At Hanson & Pratt Law Firm, we're passionate about what we do.</p>
-    <p class="text-ink/80 leading-relaxed mt-4 reveal">Our team brings years of experience and a commitment to excellence. We treat every client like family and take pride in delivering results that exceed expectations.</p>
+        <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary reveal">Our Commitment to You</h2>
+        <p class="text-ink/80 leading-[1.8] reveal">At Hanson & Pratt, we understand that legal matters can be complex and often personal.</p>
+    <p class="text-ink/80 leading-relaxed mt-4 reveal">Our dedicated team is here to offer clear guidance and strong advocacy, ensuring your interests are protected with integrity and care. We're proud to serve our community, building lasting relationships based on trust and results.</p>
       </div>
       <div class="relative inline-block reveal">
         <div class="absolute border-2 border-accent/35 rounded-brand translate-x-3 translate-y-3 -z-10 inset-0"></div>
         <div class="rounded-brand overflow-hidden shadow-xl">
-          <img src="https://images.unsplash.com/photo-1762341119317-fb5417c18407?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBidXNpbmVzcyUyMG9mZmljZSUyMGJ1c2luZXNzfGVufDB8MHx8fDE3NzI0ODY1OTF8MA&ixlib=rb-4.1.0&q=80&w=1080&w=800&fit=crop&q=80" alt="About Hanson & Pratt Law Firm" class="w-full h-full object-cover rounded-brand">
+          <img src="images/dc22dfc30272.png" alt="Our Commitment to You" class="w-full h-full object-cover rounded-brand">
         </div>
       </div>
     </div>
   </div>
 </section>
 <div class="flex items-center justify-center h-px relative overflow-visible">
-  <div class="w-[120px] h-[2px]" style="background: linear-gradient(90deg, transparent, #c8a040, transparent)"></div>
-</div>
-<section class="py-section bg-primary/[0.03]" id="gallery">
-  <div class="max-w-[1200px] mx-auto px-12">
-    <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Portfolio</div>
-    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Work</h2>
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
-      
-      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1647973035166-2abf410c68b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwzfHxsb2NhbCUyMGJ1c2luZXNzJTIwcXVhbGl0eSUyMGxhd19maXJtfGVufDB8MHx8fDE3NzI0ODY2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&w=600&fit=crop&q=80" alt="local business" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">local business</div>
-      </div>
-      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1754531976838-436a70636c96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHw2fHxsb2NhbCUyMGJ1c2luZXNzJTIwdGVhbSUyMGxhd19maXJtfGVufDB8MHx8fDE3NzI0ODY2MzJ8MA&ixlib=rb-4.1.0&q=80&w=1080&w=600&fit=crop&q=80" alt="local business quality" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">local business quality</div>
-      </div>
-      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="local business team" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">local business team</div>
-      </div>
-      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-4">
-        <img src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=600&q=80" alt="local business results" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">local business results</div>
-      </div>
-    </div>
-  </div>
-</section>
-<div class="flex items-center justify-center h-px relative overflow-visible">
-  <div class="w-[120px] h-[2px]" style="background: linear-gradient(90deg, transparent, #c8a040, transparent)"></div>
+  <div class="w-[120px] h-[2px]" style="background: linear-gradient(90deg, transparent, #B8860B, transparent)"></div>
 </div>
 <section class="py-section bg-primary text-white" id="testimonials">
   <div class="max-w-[1200px] mx-auto px-12">
     <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-white/50 mb-3">Testimonials</div>
-    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-white">What Our Clients Say</h2>
+    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-white">Client Voices</h2>
     
     <div class="bg-white/[0.06] rounded-brand border border-white/[0.08] px-8 py-9 relative overflow-hidden mb-7 reveal">
       <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-      <blockquote class="text-xl leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;Absolutely amazing experience at Hanson & Pratt Law Firm. Professional, friendly, and top-notch results.&rdquo;</blockquote>
-      <div class="font-semibold text-sm relative z-[1]">Sarah M.</div>
-      <div class="text-xs opacity-60 relative z-[1]">Loyal customer</div>
+      <blockquote class="text-xl leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;Hanson & Pratt provided exceptional guidance through a difficult family matter. Their professionalism and empathy made all the difference.&rdquo;</blockquote>
+      <div class="font-semibold text-sm relative z-[1]">Sarah L.</div>
+      <div class="text-xs opacity-60 relative z-[1]">Client since 2021</div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5">
       
       <div class="bg-white/[0.06] rounded-brand border border-white/[0.08] px-8 py-9 relative overflow-hidden reveal reveal-delay-1">
         <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;I've been coming here for years and wouldn't go anywhere else. Highly recommend!&rdquo;</blockquote>
-        <div class="font-semibold text-sm relative z-[1]">James R.</div>
-        <div class="text-xs opacity-60 relative z-[1]">5-star review</div>
+        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;I highly recommend Hanson & Pratt for estate planning. They made a complex process clear and handled everything with meticulous care.&rdquo;</blockquote>
+        <div class="font-semibold text-sm relative z-[1]">Michael D.</div>
+        <div class="text-xs opacity-60 relative z-[1]">Local business owner</div>
       </div>
       <div class="bg-white/[0.06] rounded-brand border border-white/[0.08] px-8 py-9 relative overflow-hidden reveal reveal-delay-2">
         <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;The team here truly cares about their clients. Outstanding service every single time.&rdquo;</blockquote>
-        <div class="font-semibold text-sm relative z-[1]">Maria L.</div>
-        <div class="text-xs opacity-60 relative z-[1]">Referred by a friend</div>
+        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;The team at Hanson & Pratt helped me navigate a real estate dispute effectively and efficiently. Truly a top-tier law firm.&rdquo;</blockquote>
+        <div class="font-semibold text-sm relative z-[1]">Jessica R.</div>
+        <div class="text-xs opacity-60 relative z-[1]">Satisfied client</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="w-full overflow-hidden leading-[0] relative -my-px" style="transform: rotate(180deg);">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" class="block w-full h-12">
+    <path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z"
+          fill="#F8F8F8" opacity="0.6"/>
+    <path d="M0,32 C240,48 480,16 720,32 C960,48 1200,16 1440,32 L1440,48 L0,48 Z"
+          fill="#F8F8F8"/>
+  </svg>
+</div>
+<section class="py-section bg-bg" id="gallery">
+  <div class="max-w-[1200px] mx-auto px-12">
+    <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Portfolio</div>
+    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Office</h2>
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
+      
+      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-1">
+        <img src="https://images.unsplash.com/photo-1754531976838-436a70636c96?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODE0MDJ8MHwxfHNlYXJjaHw3fHxsZWdhbCUyMHRlYW0lMjBtZWV0aW5nJTIwbGF3X2Zpcm18ZW58MHwwfHx8MTc3MjQ3Njk1M3ww&ixlib=rb-4.1.0&q=80&w=1080&w=600&fit=crop&q=80" alt="law office interior" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">law office interior</div>
+      </div>
+      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-2">
+        <img src="https://images.unsplash.com/photo-1759038085950-1234ca8f5fed?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODE0MDJ8MHwxfHNlYXJjaHwxfHxjbGllbnQlMjBjb25zdWx0YXRpb24lMjByb29tJTIwbGF3X2Zpcm18ZW58MHwwfHx8MTc3MjQ4Njg4OHww&ixlib=rb-4.1.0&q=80&w=1080&w=600&fit=crop&q=80" alt="legal team meeting" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">legal team meeting</div>
+      </div>
+      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-3">
+        <img src="https://images.unsplash.com/photo-1575282343536-469af953c6e7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODE0MDJ8MHwxfHNlYXJjaHw1fHxtb2Rlcm4lMjBsYXclMjBsaWJyYXJ5JTIwbGF3X2Zpcm18ZW58MHwwfHx8MTc3MjQ4Njg4OXww&ixlib=rb-4.1.0&q=80&w=1080&w=600&fit=crop&q=80" alt="client consultation room" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">client consultation room</div>
+      </div>
+      <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-4">
+        <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=600&q=80" alt="modern law library" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-110 group-hover:brightness-[0.8]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">modern law library</div>
       </div>
     </div>
   </div>
 </section>
 <section class="bg-primary text-white text-center py-section px-12 relative overflow-hidden">
   <div class="max-w-[1200px] mx-auto relative">
-    <h2 class="font-heading text-[2rem] font-bold mb-4 text-accent">Quality Service You Can Trust</h2>
+    <h2 class="font-heading text-[2rem] font-bold mb-4 text-accent">Your Trusted Legal Partners for Peace of Mind.</h2>
     <p class="opacity-80 mb-6">Let's make it happen.</p>
-    <a href="#contact" class="inline-flex items-center gap-2 bg-transparent text-accent px-10 py-4 rounded-brand border-[1.5px] border-accent/50 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:bg-accent hover:text-white">Get Started Today &rarr;</a>
+    <a href="#contact" class="inline-flex items-center gap-2 bg-transparent text-accent px-10 py-4 rounded-brand border-[1.5px] border-accent/50 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:bg-accent hover:text-white">Schedule a Consultation &rarr;</a>
   </div>
 </section>
 <section class="py-section bg-bg" id="contact">
@@ -226,17 +222,17 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
       <div class="bg-primary text-white rounded-brand p-8 border-t-4 border-accent">
         <h4 class="text-white font-heading font-semibold mb-4">Business Hours</h4>
-        <div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Mon &ndash; Fri</span><span>9am &ndash; 5pm</span></div><div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Saturday</span><span>10am &ndash; 2pm</span></div><div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Sunday</span><span>Closed</span></div>
+        <div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Mon - Fri</span><span>9am - 5pm</span></div><div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Saturday</span><span>10am - 2pm</span></div><div class="flex justify-between py-2.5 border-b border-white/10 last:border-b-0"><span>Sunday</span><span>Closed</span></div>
       </div>
       <div class="p-8">
         <h4 class="font-heading font-semibold mb-4 text-primary">Hanson & Pratt Law Firm</h4>
         <p class="text-sm text-ink/70 mb-2">&#128222; (505) 397-3150</p>
         
       </div>
-      <div class="rounded-brand p-8 flex flex-col justify-center text-white" style="background: linear-gradient(135deg, #c8a040, #0c1420)">
+      <div class="rounded-brand p-8 flex flex-col justify-center text-white" style="background: linear-gradient(135deg, #B8860B, #0F284B)">
         <h3 class="font-heading font-semibold text-white mb-3">Ready to Start?</h3>
         <p class="opacity-90 mb-5">Give us a call or stop by — we'd love to hear from you.</p>
-        <a href="tel:5053973150" class="inline-flex items-center gap-2 bg-white text-accent px-7 py-3.5 rounded-brand font-semibold text-sm self-start transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg">Get Started Today</a>
+        <a href="tel:5053973150" class="inline-flex items-center gap-2 bg-white text-accent px-7 py-3.5 rounded-brand font-semibold text-sm self-start transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg">Schedule a Consultation</a>
       </div>
     </div>
   </div>
@@ -246,11 +242,11 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
       <div>
         <div class="font-heading text-2xl font-bold text-white mb-2">Hanson & Pratt Law Firm</div>
-        <div class="text-sm opacity-60">Quality Service You Can Trust</div>
+        <div class="text-sm opacity-60">Your Trusted Legal Partners for Peace of Mind.</div>
       </div>
       <div>
         <h4 class="text-white text-[0.85rem] mb-3 uppercase tracking-widest opacity-60">Quick Links</h4>
-        <ul class="list-none p-0"><li class="mb-2"><a href="#services" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Services</a></li><li class="mb-2"><a href="#about" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">About</a></li><li class="mb-2"><a href="#gallery" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Gallery</a></li><li class="mb-2"><a href="#testimonials" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Reviews</a></li><li class="mb-2"><a href="#contact" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Contact</a></li></ul>
+        <ul class="list-none p-0"><li class="mb-2"><a href="#services" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Services</a></li><li class="mb-2"><a href="#about" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">About</a></li><li class="mb-2"><a href="#testimonials" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Reviews</a></li><li class="mb-2"><a href="#gallery" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Gallery</a></li><li class="mb-2"><a href="#contact" class="text-sm text-white/60 hover:text-accent hover:opacity-100 transition-all duration-300">Contact</a></li></ul>
       </div>
       <div>
         <h4 class="text-white text-[0.85rem] mb-3 uppercase tracking-widest opacity-60">Contact</h4>
