@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tyler’s BBQ — professional restaurant services. Contact us today.">
+<title>Tyler’s BBQ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{primary:'#1C1917',accent:'#DC2626',warm:'#FDF2E9',cream:'#FAF5EF',ink:'#292524',gold:'#B8860B'},fontFamily:{heading:['Playfair Display','serif'],body:['Lato','sans-serif']},borderRadius:{brand:'6px'},spacing:{section:'100px'}}}}</script>
+<style>
+html{scroll-behavior:smooth}
+@keyframes grain{0%,100%{transform:translate(0,0)}10%{transform:translate(-2%,-3%)}30%{transform:translate(3%,2%)}50%{transform:translate(-1%,4%)}70%{transform:translate(4%,-1%)}90%{transform:translate(-3%,3%)}}
+.grain::before{content:'';position:absolute;inset:-50%;width:200%;height:200%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");opacity:0.04;pointer-events:none;animation:grain 8s steps(10) infinite;z-index:1}
+.nav-scrolled{background:rgba(28,25,23,0.95)!important;backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.15);border-bottom-color:rgba(255,255,255,0.06)!important}
+.reveal{opacity:0;transition:opacity 0.6s ease,transform 0.6s ease;transform:translateY(28px)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:0.1s}.reveal-delay-2{transition-delay:0.2s}.reveal-delay-3{transition-delay:0.3s}
+.reveal-delay-4{transition-delay:0.4s}.reveal-delay-5{transition-delay:0.5s}.reveal-delay-6{transition-delay:0.6s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.fade-in{animation:fadeIn 1s ease-out both}
+.flourish{display:flex;align-items:center;gap:12px;justify-content:center}
+.flourish::before,.flourish::after{content:'';width:40px;height:1px;background:#B8860B}
+</style>
+</head>
+<body class="font-body text-ink bg-cream antialiased leading-relaxed">
+<nav class="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-5 md:px-12 h-[72px] bg-transparent border-b border-white/10 transition-all duration-300" id="nav">
+  <div class="font-heading text-xl font-bold text-white tracking-wide">Tyler’s BBQ</div>
+  <ul class="hidden md:flex gap-7 list-none">
+    <li><a href="#services" class="text-[0.82rem] font-light tracking-widest text-white/80 uppercase hover:text-accent transition-all duration-300">Menu</a></li>
+    <li><a href="#gallery" class="text-[0.82rem] font-light tracking-widest text-white/80 uppercase hover:text-accent transition-all duration-300">Gallery</a></li>
+    <li><a href="#about" class="text-[0.82rem] font-light tracking-widest text-white/80 uppercase hover:text-accent transition-all duration-300">Our Story</a></li>
+    <li><a href="#testimonials" class="text-[0.82rem] font-light tracking-widest text-white/80 uppercase hover:text-accent transition-all duration-300">Reviews</a></li>
+    <li><a href="#contact" class="text-[0.82rem] font-light tracking-widest text-white/80 uppercase hover:text-accent transition-all duration-300">Contact</a></li>
+  </ul>
+  <a href="tel:+15053973150" class="text-white px-5 md:px-6 py-2.5 rounded-brand text-[0.78rem] font-bold tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 bg-accent truncate max-w-[180px]">Get Started Today</a>
+</nav>
+
+<!-- HERO: Full-bleed with centered text -->
+<section class="relative min-h-screen flex items-center justify-center overflow-hidden bg-primary text-center" id="hero">
+  <div class="absolute inset-0">
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80" alt="" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-gradient-to-b from-[#1C1917]/70 via-[#1C1917]/50 to-[#1C1917]/80"></div>
+  </div>
+  <div class="relative z-10 max-w-3xl mx-auto px-6 py-32 fade-in">
+    <div class="flourish mb-6"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">Est. </span></div>
+    <h1 class="font-heading text-white font-bold leading-[1.05] tracking-tight mb-6 reveal" style="font-size:clamp(2.8rem,7vw,5rem)">Where Flavor Meets Tradition</h1>
+    <p class="text-white/75 text-lg leading-relaxed mb-10 max-w-xl mx-auto reveal font-light">Fresh ingredients, bold flavors, and a welcoming atmosphere await you.</p>
+    <div class="flex gap-4 flex-wrap justify-center">
+      <a href="#contact" class="text-white px-10 py-4 rounded-brand text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 bg-accent">Get Started Today</a>
+      <a href="#services" class="text-white/90 px-10 py-4 rounded-brand border border-white/30 text-sm font-light tracking-widest uppercase transition-all duration-300 hover:bg-white/10">Learn More</a>
+    </div>
+  </div>
+</section>
+
+<!-- DIVIDER -->
+<div class="w-full overflow-hidden leading-[0] relative -my-px">
+  <svg viewBox="0 0 1440 48" preserveAspectRatio="none" class="block w-full h-12"><path d="M0,24 C360,48 720,0 1080,24 C1260,36 1380,12 1440,24 L1440,48 L0,48 Z" fill="#FAF5EF" opacity="0.6"/><path d="M0,32 C240,48 480,16 720,32 C960,48 1200,16 1440,32 L1440,48 L0,48 Z" fill="#FAF5EF"/></svg>
+</div>
+
+<!-- SERVICES: Menu-style -->
+<section class="py-section bg-cream relative" id="services">
+  <div class="max-w-[900px] mx-auto px-6 md:px-12">
+    <div class="text-center mb-14">
+      <div class="flourish mb-4"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">Our Offerings</span></div>
+      <h2 class="font-heading text-[2.8rem] font-bold leading-tight text-primary">Our Menu Highlights</h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-2">
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-1">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🥩</span>Signature Entrees
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Chef-crafted dishes made from the finest ingredients.</p>
+      </div>
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-2">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🥗</span>Fresh Salads
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Crisp, seasonal salads bursting with flavor.</p>
+      </div>
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-3">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🍝</span>Handmade Pastas
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Traditional recipes prepared fresh daily.</p>
+      </div>
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-4">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🍷</span>Curated Wine List
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Perfectly paired selections from local and international vineyards.</p>
+      </div>
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-5">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🍰</span>Artisan Desserts
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Decadent sweets to complete your dining experience.</p>
+      </div>
+      
+      <div class="py-5 border-b border-ink/10 reveal reveal-delay-6">
+        <div class="flex items-baseline justify-between gap-4 mb-1">
+          <h3 class="font-heading text-lg font-semibold text-primary">
+            <span class="mr-2">🎉</span>Private Events
+          </h3>
+          <span class="flex-1 border-b border-dotted border-ink/20 min-w-[30px] translate-y-[-4px]"></span>
+        </div>
+        <p class="text-sm text-ink/60 leading-relaxed font-light">Host your next celebration in our private dining room.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY: Masonry / staggered grid -->
+<section class="py-section bg-warm" id="gallery">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+    <div class="text-center mb-12">
+      <div class="flourish mb-4"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">A Visual Feast</span></div>
+      <h2 class="font-heading text-[2.8rem] font-bold leading-tight text-primary">Our Work</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 auto-rows-[200px] md:auto-rows-[240px]">
+      
+      <div class="group relative overflow-hidden rounded-brand cursor-pointer reveal reveal-delay-1" style="grid-row:span 1">
+        <img src="https://images.unsplash.com/photo-1537047902294-62a40c20a6ae?auto=format&fit=crop&w=600&q=80" alt="Project One" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-heading text-sm italic">Project One</div>
+      </div>
+      
+      <div class="group relative overflow-hidden rounded-brand cursor-pointer reveal reveal-delay-2" style="grid-row:span 2">
+        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=600&q=80" alt="Project Two" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-heading text-sm italic">Project Two</div>
+      </div>
+      
+      <div class="group relative overflow-hidden rounded-brand cursor-pointer reveal reveal-delay-3" style="grid-row:span 3">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80" alt="Project Three" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-heading text-sm italic">Project Three</div>
+      </div>
+      
+      <div class="group relative overflow-hidden rounded-brand cursor-pointer reveal reveal-delay-4" style="grid-row:span 4">
+        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=600&q=80" alt="Project Four" class="w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.06]">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div class="absolute bottom-4 left-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 text-white font-heading text-sm italic">Project Four</div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT: Side-by-side story -->
+<section class="py-section bg-cream" id="about">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="relative reveal">
+        <div class="absolute -inset-3 border border-gold/30 rounded-brand -z-10"></div>
+        <img src="https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=800&q=80" alt="Why Choose Tyler’s BBQ" class="w-full h-full object-cover rounded-brand shadow-xl">
+      </div>
+      <div>
+        <div class="flourish justify-start mb-4"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">Our Story</span></div>
+        <h2 class="font-heading text-[2.5rem] font-bold leading-tight text-primary mb-6 reveal">Why Choose Tyler’s BBQ</h2>
+        <p class="text-ink/70 leading-[1.9] font-light reveal">At Tyler’s BBQ, we're passionate about what we do. Our team brings years of experience and a commitment to excellence. We treat every client like family.</p>
+        <p class="text-ink/70 leading-[1.9] font-light mt-4 reveal">From day one, our mission has been simple: deliver outstanding results and build lasting relationships. We take pride in our craft and stand behind every job we do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS: Dark warm background -->
+<section class="py-section bg-primary text-white relative overflow-hidden grain" id="testimonials">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12 relative z-10">
+    <div class="text-center mb-12">
+      <div class="flourish mb-4"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">Guest Reviews</span></div>
+      <h2 class="font-heading text-[2.5rem] font-bold leading-tight text-white">What Our Guests Say</h2>
+    </div>
+    <div class="bg-white/[0.06] border border-white/10 rounded-xl px-8 py-10 relative overflow-hidden mb-8 reveal">
+      <span class="absolute top-0 left-6 text-[8rem] leading-none font-heading text-gold/10 pointer-events-none select-none">&ldquo;</span>
+      <blockquote class="text-xl leading-relaxed italic opacity-90 mb-5 relative z-[1] font-heading font-normal">&ldquo;Absolutely amazing experience at Tyler’s BBQ. Professional, friendly, and top-notch results every single time. I wouldn't go anywhere else.&rdquo;</blockquote>
+      <div class="font-bold text-sm text-gold relative z-[1]">Sarah M.</div>
+      <div class="text-xs opacity-50 relative z-[1]">Loyal Customer</div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      
+      <div class="bg-white/[0.06] border border-white/10 rounded-xl px-8 py-8 relative overflow-hidden reveal reveal-delay-1">
+        <span class="absolute top-0 left-4 text-[5rem] leading-none font-heading text-gold/10 pointer-events-none select-none">&ldquo;</span>
+        <blockquote class="text-base leading-relaxed italic opacity-85 mb-4 relative z-[1] font-light">&ldquo;I've been coming here for years and wouldn't go anywhere else. Highly recommend!&rdquo;</blockquote>
+        <div class="font-bold text-sm text-gold relative z-[1]">James R.</div>
+        <div class="text-xs opacity-50 relative z-[1]">5-Star Reviewer</div>
+      </div>
+      
+      <div class="bg-white/[0.06] border border-white/10 rounded-xl px-8 py-8 relative overflow-hidden reveal reveal-delay-2">
+        <span class="absolute top-0 left-4 text-[5rem] leading-none font-heading text-gold/10 pointer-events-none select-none">&ldquo;</span>
+        <blockquote class="text-base leading-relaxed italic opacity-85 mb-4 relative z-[1] font-light">&ldquo;The team here truly cares about their clients. Outstanding service every single time.&rdquo;</blockquote>
+        <div class="font-bold text-sm text-gold relative z-[1]">Maria L.</div>
+        <div class="text-xs opacity-50 relative z-[1]">Referred by a Friend</div>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
+<!-- CTA: Warm gradient -->
+<section class="text-white text-center py-section px-6 relative overflow-hidden" style="background:linear-gradient(135deg,#DC2626,#EA580C)">
+  <div class="max-w-[800px] mx-auto relative z-10">
+    <h2 class="font-heading text-[2.2rem] font-bold mb-4">Ready to Experience the Tyler’s BBQ Difference?</h2>
+    <p class="opacity-85 mb-8 font-light text-lg">Contact us today and discover why clients trust us.</p>
+    <a href="#contact" class="inline-flex items-center gap-2 bg-white text-accent px-10 py-4 rounded-brand text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">Get Started Today &rarr;</a>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-section bg-cream" id="contact">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+    <div class="text-center mb-12">
+      <div class="flourish mb-4"><span class="text-gold text-xs tracking-[0.35em] uppercase font-light">Reservations</span></div>
+      <h2 class="font-heading text-[2.5rem] font-bold leading-tight text-primary">Contact Us</h2>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div class="bg-white rounded-xl shadow-md border border-ink/5 p-8" style="border-top:3px solid #B8860B">
+        <h4 class="font-heading font-semibold mb-4 text-primary">Hours</h4>
+        <div class="flex justify-between py-2.5 border-b border-ink/5"><span class="text-ink/70 font-light">Mon &ndash; Thu</span><span class="text-ink/50 font-light">11am &ndash; 9pm</span></div>
+        <div class="flex justify-between py-2.5 border-b border-ink/5"><span class="text-ink/70 font-light">Fri &ndash; Sat</span><span class="text-ink/50 font-light">11am &ndash; 10pm</span></div>
+        <div class="flex justify-between py-2.5"><span class="text-ink/70 font-light">Sunday</span><span class="text-ink/50 font-light">10am &ndash; 8pm</span></div>
+      </div>
+      <div class="bg-white rounded-xl shadow-md border border-ink/5 p-8">
+        <h4 class="font-heading font-semibold mb-4 text-primary">Tyler’s BBQ</h4>
+        <p class="text-sm text-ink/60 mb-2 font-light">&#128222; +15053973150</p>
+        <p class="text-sm text-ink/60 mb-2 font-light">&#128205; Serving your local community</p>
+      </div>
+      <div class="rounded-xl shadow-xl p-8 flex flex-col justify-center text-white" style="background:linear-gradient(135deg,#DC2626,#1C1917)">
+        <h3 class="font-heading font-semibold text-white mb-3">Make a Reservation</h3>
+        <p class="opacity-85 mb-5 font-light">Call us or stop by — we&rsquo;d love to welcome you.</p>
+        <a href="tel:+15053973150" class="inline-flex items-center gap-2 bg-white text-accent px-7 py-3.5 rounded-brand font-bold text-sm self-start transition-all duration-300 hover:-translate-y-0.5 shadow-md">Get Started Today</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-primary text-white/60 pt-12 pb-6">
+  <div class="max-w-[1200px] mx-auto px-6 md:px-12">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+      <div>
+        <div class="font-heading text-2xl font-bold text-white mb-2">Tyler’s BBQ</div>
+        <div class="text-sm opacity-50 font-light">Good food, good people, great memories.</div>
+      </div>
+      <div>
+        <h4 class="text-gold text-[0.85rem] mb-3 uppercase tracking-widest">Quick Links</h4>
+        <ul class="list-none p-0"><li class="mb-2"><a href="#services" class="text-sm text-white/50 hover:text-gold transition-all duration-300 font-light">Menu</a></li><li class="mb-2"><a href="#gallery" class="text-sm text-white/50 hover:text-gold transition-all duration-300 font-light">Gallery</a></li><li class="mb-2"><a href="#about" class="text-sm text-white/50 hover:text-gold transition-all duration-300 font-light">Our Story</a></li><li class="mb-2"><a href="#testimonials" class="text-sm text-white/50 hover:text-gold transition-all duration-300 font-light">Reviews</a></li><li class="mb-2"><a href="#contact" class="text-sm text-white/50 hover:text-gold transition-all duration-300 font-light">Contact</a></li></ul>
+      </div>
+      <div>
+        <h4 class="text-gold text-[0.85rem] mb-3 uppercase tracking-widest">Visit Us</h4>
+        <p class="text-white/50 font-light">&#128222; +15053973150</p>
+        <p class="text-white/50 font-light">&#128205; </p>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-6 text-center text-xs text-white/25">&copy; 2026 Tyler’s BBQ. All rights reserved.</div>
+  </div>
+</footer>
+<script>
+var ro=document.querySelectorAll('.reveal');
+var ob=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');ob.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+ro.forEach(function(el){ob.observe(el)});
+var nv=document.getElementById('nav');var tk=false;
+window.addEventListener('scroll',function(){if(!tk){window.requestAnimationFrame(function(){nv.classList.toggle('nav-scrolled',window.scrollY>60);tk=false});tk=true}});
+</script>
+</body></html>
