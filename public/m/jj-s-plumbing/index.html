@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="JJ's Plumbing offers expert, reliable plumbing services in your local area. From emergency repairs to drain cleaning and water heater installation, trust us for quality work.">
+<meta name="description" content="JJ’s Plumbing — professional local business services. Contact us today.">
 <title>JJ’s Plumbing</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,7 +11,30 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>tailwind.config = { theme: { extend: { colors: { primary: '#1A436C', secondary: '#008C9E', accent: '#FF8C00', bg: '#F8F8F8', ink: '#333333' }, fontFamily: { heading: ['Poppins', 'serif'], body: ['Lato', 'sans-serif'] }, borderRadius: { brand: '8px' }, spacing: { section: '100px' } } } }</script>
 <style>
+    :root {
+      --primary: #1A436C;
+      --secondary: #008C9E;
+      --accent: #FF8C00;
+      --background: #F8F8F8;
+      --text-dark: #333333;
+      --font-heading: 'Poppins', serif;
+      --font-body: 'Lato', sans-serif;
+    }
     html { scroll-behavior: smooth; }
+    body { background-color: var(--background, #F8F8F8); color: var(--text-dark, #333333); font-family: var(--font-body, 'Lato', sans-serif); }
+    .font-heading { font-family: var(--font-heading) !important; }
+    .font-body    { font-family: var(--font-body) !important; }
+
+    /* Brand color overrides via CSS variables */
+    .text-primary { color: var(--primary, #1A436C) !important; }
+    .text-accent  { color: var(--accent, #FF8C00) !important; }
+    .bg-primary   { background-color: var(--primary, #1A436C) !important; }
+    .bg-accent    { background-color: var(--accent, #FF8C00) !important; }
+    .border-accent { border-color: var(--accent, #FF8C00) !important; }
+    .bg-bg        { background-color: var(--background, #F8F8F8) !important; }
+    .hover\:text-accent:hover  { color: var(--accent, #FF8C00) !important; }
+    .hover\:bg-accent:hover    { background-color: var(--accent, #FF8C00) !important; }
+    .hover\:border-accent:hover { border-color: var(--accent, #FF8C00) !important; }
 
     /* Grain overlay */
     @keyframes grain {
@@ -37,7 +60,7 @@
       box-shadow: 0 4px 30px rgba(0,0,0,0.08);
       border-bottom-color: rgba(0,0,0,0.06) !important;
     }
-    .nav-scrolled .nav-logo { color: #1A436C; }
+    .nav-scrolled .nav-logo { color: var(--primary, #1A436C); }
     .nav-scrolled .nav-link { color: rgba(51,51,51,0.7); }
 
 
@@ -57,24 +80,24 @@
     .fade-in { animation: fadeIn 1s ease-out both; }
     .slide-up { animation: slideUp 0.8s ease-out both; }</style>
 </head>
-<body class="font-body text-ink bg-bg antialiased leading-relaxed">
+<body class="font-body antialiased leading-relaxed">
 <nav class="fixed top-0 left-0 right-0 z-[1000] flex items-center justify-between px-5 md:px-12 h-[72px] bg-transparent border-b border-white/10 transition-all duration-300" id="nav">
   <div class="font-heading text-xl font-bold text-white nav-logo">JJ’s Plumbing</div>
   <ul class="hidden md:flex gap-7 list-none"><li><a href="#services" class="text-[0.82rem] font-medium tracking-wide text-white/80 uppercase hover:text-accent transition-all duration-300 nav-link">Services</a></li><li><a href="#testimonials" class="text-[0.82rem] font-medium tracking-wide text-white/80 uppercase hover:text-accent transition-all duration-300 nav-link">Reviews</a></li><li><a href="#about" class="text-[0.82rem] font-medium tracking-wide text-white/80 uppercase hover:text-accent transition-all duration-300 nav-link">About</a></li><li><a href="#gallery" class="text-[0.82rem] font-medium tracking-wide text-white/80 uppercase hover:text-accent transition-all duration-300 nav-link">Gallery</a></li><li><a href="#contact" class="text-[0.82rem] font-medium tracking-wide text-white/80 uppercase hover:text-accent transition-all duration-300 nav-link">Contact</a></li></ul>
-  <a href="tel:+15053973150" class="text-white px-5 md:px-6 py-2.5 rounded-brand text-[0.78rem] font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 truncate max-w-[180px]" style="background: linear-gradient(135deg, #FF8C00, #FF8C00dd)">Call Us Now</a>
+  <a href="tel:+15053973150" class="text-white px-5 md:px-6 py-2.5 rounded-brand text-[0.78rem] font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-0.5 truncate max-w-[180px]" style="background: var(--accent, #FF8C00)">Get Started Today</a>
 </nav>
-<section class="relative min-h-screen flex items-center overflow-hidden bg-primary" id="hero">
+<section class="relative min-h-screen flex items-center overflow-hidden" id="hero" style="background-color: var(--primary, #1A436C)">
   <div class="absolute inset-0">
-    <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1920&q=80" alt="" class="w-full h-full object-cover">
+    <img src="https://images.unsplash.com/photo-1723847165390-f45ef02f6b86?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjBwbHVtYmVyJTIwYXQlMjB3b3JrfGVufDF8MHx8fDE3NzI2NTE2OTF8MA&ixlib=rb-4.1.0&q=80&w=1080" alt="" class="w-full h-full object-cover">
     <div class="absolute inset-0 bg-gradient-to-r from-[#0a1e36]/90 via-[#0a1e36]/65 to-[#0a1e36]/30"></div>
     <div class="absolute inset-0 bg-gradient-to-t from-[#0a1e36]/70 via-transparent to-[#0a1e36]/30"></div>
   </div>
   <div class="relative z-10 max-w-7xl mx-auto px-6 md:px-16 pt-32 pb-20 fade-in">
-    <h1 class="font-heading text-white font-extrabold leading-[1.02] tracking-tight mb-6 max-w-3xl reveal" style="font-size: clamp(2.4rem, 7vw, 5.5rem);">Your Local Plumbing Experts</h1>
-    <p class="text-white/80 text-lg leading-relaxed mb-9 max-w-[540px] reveal">From leaky faucets to full system installations, we provide reliable and professional plumbing solutions for your home or business.</p>
+    <h1 class="font-heading text-white font-extrabold leading-[1.02] tracking-tight mb-6 max-w-3xl reveal" style="font-size: clamp(2.4rem, 7vw, 5.5rem);">Reliable Plumbing You Can Trust</h1>
+    <p class="text-white/80 text-lg leading-relaxed mb-9 max-w-[540px] reveal">Fast, professional service for your home or business. Available 24/7.</p>
     <div class="flex gap-4 flex-wrap">
-      <a href="#contact" class="inline-flex items-center gap-2 text-white px-9 py-4 rounded-brand text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 hover:brightness-110" style="background: linear-gradient(135deg, #FF8C00, #FF8C00bb); box-shadow: 0 4px 20px #FF8C0055">Call Us Now</a>
-      <a href="#services" class="inline-flex items-center gap-2 bg-transparent text-white px-9 py-4 rounded-brand border-[1.5px] border-white/30 text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:text-accent hover:border-accent hover:bg-accent/5">Our Services</a>
+      <a href="#contact" class="inline-flex items-center gap-2 text-white px-9 py-4 rounded-brand text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:-translate-y-1 hover:brightness-110" style="background: var(--accent, #FF8C00); box-shadow: 0 4px 20px rgba(0,0,0,0.2)">Get Started Today</a>
+      <a href="#services" class="inline-flex items-center gap-2 bg-transparent text-white px-9 py-4 rounded-brand border-[1.5px] border-white/30 text-sm font-semibold tracking-widest uppercase transition-all duration-300 hover:text-accent hover:border-accent hover:bg-accent/5">Learn More</a>
     </div>
   </div>
 </section>
@@ -86,70 +109,70 @@
           fill="#F8F8F8"/>
   </svg>
 </div>
-<section class="py-section relative" id="services" style="background: linear-gradient(135deg, #FF8C0008, #1A436C05, #FF8C0006)">
+<section class="py-section relative" id="services" style="background: #fafbfc">
   <div class="max-w-[1200px] mx-auto px-12">
     <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">What We Offer</div>
-    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Plumbing Services</h2>
+    <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Services</h2>
 
     <div class="mt-10 max-w-[700px] backdrop-blur-sm bg-white/50 rounded-2xl p-6 border border-white/15">
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-1">
-        <span class="text-[1.8rem] shrink-0 mt-0.5">🚨</span>
+        <span class="text-[1.8rem] shrink-0 mt-0.5">🔧</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Emergency Repairs</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">Facing a plumbing crisis? We offer rapid response for burst pipes, major leaks, and urgent issues to protect your home.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Drain Cleaning</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">Expert drain clearing and preventive maintenance.</p>
         </div>
       </div>
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-2">
         <span class="text-[1.8rem] shrink-0 mt-0.5">🚿</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Drain Cleaning</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">Tackle stubborn clogs and slow drains effectively with our professional snaking and hydro-jetting services.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Water Heater Repair</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">Installation and repair of all water heater types.</p>
         </div>
       </div>
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-3">
-        <span class="text-[1.8rem] shrink-0 mt-0.5">♨️</span>
+        <span class="text-[1.8rem] shrink-0 mt-0.5">🚰</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Water Heater Services</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">From repairs to new installations of traditional and tankless water heaters, we ensure you have consistent hot water.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Leak Detection</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">Advanced leak detection to prevent water damage.</p>
         </div>
       </div>
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-4">
-        <span class="text-[1.8rem] shrink-0 mt-0.5">🚽</span>
+        <span class="text-[1.8rem] shrink-0 mt-0.5">🏠</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Fixture Installation & Repair</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">Upgrade or fix your faucets, toilets, showers, and other plumbing fixtures with our expert installation and repair.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Pipe Repair</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">Durable pipe repair and repiping solutions.</p>
         </div>
       </div>
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-5">
-        <span class="text-[1.8rem] shrink-0 mt-0.5">💧</span>
+        <span class="text-[1.8rem] shrink-0 mt-0.5">🛠️</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Pipe Repair & Replacement</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">Whether it's a small leak or old piping needing full replacement, we provide durable solutions for your peace of mind.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Fixture Installation</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">Faucets, toilets, and fixture upgrades.</p>
         </div>
       </div>
       
       <div class="flex items-start gap-5 py-5 border-b border-black/[0.06] last:border-b-0 reveal reveal-delay-6">
-        <span class="text-[1.8rem] shrink-0 mt-0.5">🌊</span>
+        <span class="text-[1.8rem] shrink-0 mt-0.5">⚡</span>
         <div>
-          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Sump Pump Services</h3>
-          <p class="text-[0.85rem] text-ink/70 leading-relaxed">Protect your basement from flooding with our reliable sump pump installation, maintenance, and repair services.</p>
+          <h3 class="font-heading text-base font-semibold mb-1 text-primary">Emergency Service</h3>
+          <p class="text-[0.85rem] leading-relaxed" style="color: var(--text-dark, #333); opacity: 0.7">24/7 emergency plumbing when you need it most.</p>
         </div>
       </div>
       
     </div>
   </div>
 </section>
-<section class="bg-primary text-white text-center py-section px-12 relative overflow-hidden">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] h-[200%] rounded-full opacity-10 blur-3xl" style="background:#FF8C00"></div>
+<section class="text-white text-center py-section px-12 relative overflow-hidden" style="background-color: var(--primary, #1A436C)">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30%] h-[200%] rounded-full opacity-10 blur-3xl" style="background: var(--accent, #FF8C00)"></div>
   <div class="max-w-[1200px] mx-auto relative z-10">
-    <h2 class="font-heading text-[2rem] font-bold mb-4 text-accent">Need Reliable Plumbing Help?</h2>
-    <p class="opacity-80 mb-6">Don't let plumbing problems disrupt your day – our friendly and experienced team is ready to assist you promptly.</p>
-    <a href="#contact" class="inline-flex items-center gap-2 bg-transparent text-accent px-10 py-4 rounded-brand border-[1.5px] border-accent/50 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:bg-accent hover:text-white">Call Us Now &rarr;</a>
+    <h2 class="font-heading text-[2rem] font-bold mb-4 text-accent">Ready to Experience the JJ’s Plumbing Difference?</h2>
+    <p class="opacity-80 mb-6">Contact us today and discover why clients trust us.</p>
+    <a href="#contact" class="inline-flex items-center gap-2 bg-transparent text-accent px-10 py-4 rounded-brand border-[1.5px] border-accent/50 text-sm font-bold tracking-widest uppercase transition-all duration-300 hover:bg-accent hover:text-white">Get Started Today &rarr;</a>
   </div>
 </section>
 <div class="w-full overflow-hidden leading-[0] relative -my-px">
@@ -164,24 +187,24 @@
 
     <div class="bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-9 relative overflow-hidden mb-7 reveal">
       <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-      <blockquote class="text-xl leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;JJ's Plumbing saved us when our water heater unexpectedly failed. They responded incredibly fast, explained all our options clearly, and had a new unit installed the same day. The team was professional, clean, and truly went above and beyond.&rdquo;</blockquote>
-      <div class="font-semibold text-sm relative z-[1]">Sarah J.</div>
-      <div class="text-xs opacity-60 relative z-[1]">Homeowner</div>
+      <blockquote class="text-xl leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;Absolutely amazing experience at JJ’s Plumbing. Professional, friendly, and top-notch results every single time. I wouldn't go anywhere else.&rdquo;</blockquote>
+      <div class="font-semibold text-sm relative z-[1]">Sarah M.</div>
+      <div class="text-xs opacity-60 relative z-[1]">Loyal Customer</div>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-5">
       
       <div class="bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-9 relative overflow-hidden reveal reveal-delay-1">
         <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;Had a persistent kitchen sink clog that other plumbers couldn't fix. JJ's team came out, diagnosed it quickly, and now it drains perfectly. Highly recommend their drain cleaning!&rdquo;</blockquote>
-        <div class="font-semibold text-sm relative z-[1]">Mark P.</div>
-        <div class="text-xs opacity-60 relative z-[1]">Local Resident</div>
+        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;I've been coming here for years and wouldn't go anywhere else. Highly recommend!&rdquo;</blockquote>
+        <div class="font-semibold text-sm relative z-[1]">James R.</div>
+        <div class="text-xs opacity-60 relative z-[1]">5-Star Reviewer</div>
       </div>
       
       <div class="bg-white/10 border border-white/10 backdrop-blur-md rounded-2xl px-8 py-9 relative overflow-hidden reveal reveal-delay-2">
         <span class="absolute top-[-8px] left-4 text-[7rem] leading-none font-serif text-white/[0.06] pointer-events-none select-none">&ldquo;</span>
-        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;Excellent service replacing an old toilet and fixing a leaky faucet. The plumber was courteous, efficient, and the work was done to a very high standard.&rdquo;</blockquote>
-        <div class="font-semibold text-sm relative z-[1]">Emily R.</div>
-        <div class="text-xs opacity-60 relative z-[1]">Local Homeowner</div>
+        <blockquote class="text-base leading-relaxed italic opacity-90 mb-4 relative z-[1]">&ldquo;The team here truly cares about their clients. Outstanding service every single time.&rdquo;</blockquote>
+        <div class="font-semibold text-sm relative z-[1]">Maria L.</div>
+        <div class="text-xs opacity-60 relative z-[1]">Referred by a Friend</div>
       </div>
       
     </div>
@@ -196,16 +219,16 @@
   <div class="max-w-[1200px] mx-auto px-12">
     <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       <div>
-        <div class="w-10 h-[3px] bg-accent mb-4 rounded-sm"></div>
+        <div class="w-10 h-[3px] mb-4 rounded-sm" style="background-color: var(--accent, #FF8C00)"></div>
         <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Our Story</div>
-        <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary reveal">Why Choose JJ's Plumbing?</h2>
-        <p class="text-ink/80 leading-[1.8] reveal">At JJ's Plumbing, we're more than just plumbers; we're your neighbors dedicated to keeping your home's plumbing running smoothly. We pride ourselves on offering honest, transparent, and high-quality service to every customer.</p>
-    <p class="text-ink/80 leading-relaxed mt-4 reveal">With years of experience serving our community, we understand the unique needs of local homes and businesses. We're committed to delivering lasting solutions with a friendly smile, ensuring your comfort and satisfaction above all else.</p>
+        <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary reveal">Why Choose JJ’s Plumbing</h2>
+        <p class="leading-[1.8] reveal" style="color: var(--text-dark, #333); opacity: 0.8">At JJ’s Plumbing, we're passionate about what we do. Our team brings years of experience and a commitment to excellence. We treat every client like family.</p>
+    <p class="leading-relaxed mt-4 reveal" style="color: var(--text-dark, #333); opacity: 0.8">From day one, our mission has been simple: deliver outstanding results and build lasting relationships. We take pride in our craft and stand behind every job we do.</p>
       </div>
       <div class="relative inline-block reveal">
-        <div class="absolute border-2 border-accent/35 rounded-brand translate-x-3 translate-y-3 -z-10 inset-0"></div>
+        <div class="absolute rounded-brand translate-x-3 translate-y-3 -z-10 inset-0" style="border: 2px solid var(--accent, #FF8C00); opacity: 0.4"></div>
         <div class="rounded-brand overflow-hidden shadow-xl">
-          <img src="https://images.unsplash.com/photo-1585129777188-94600bc7b4b3?auto=format&fit=crop&w=800&q=80" alt="Why Choose JJ's Plumbing?" class="w-full h-full object-cover rounded-brand">
+          <img src="https://images.unsplash.com/photo-1728550958438-c26a23761d04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwbHVtYmVyJTIwdGVhbSUyMHdvcmtpbmd8ZW58MXwwfHx8MTc3MjY1MTY5NHww&ixlib=rb-4.1.0&q=80&w=1080" alt="Why Choose JJ’s Plumbing" class="w-full h-full object-cover rounded-brand">
         </div>
       </div>
     </div>
@@ -221,32 +244,32 @@
           fill="#F8F8F8"/>
   </svg>
 </div>
-<section class="py-section bg-primary/[0.03]" id="gallery">
+<section class="py-section" id="gallery" style="background: #fafbfc">
   <div class="max-w-[1200px] mx-auto px-12">
     <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Portfolio</div>
     <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Our Work</h2>
     <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
       
       <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-1">
-        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600&q=80" alt="Project One" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
+        <img src="https://images.unsplash.com/photo-1599463698367-11cb72775b67?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwbHVtYmVyJTIwc2VydmljZXxlbnwxfDB8fHwxNzcyNjUxNjk2fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Project One" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/70 group-hover:via-black/20 transition-all duration-400"></div>
         <div class="absolute inset-0 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">Project One</div>
       </div>
       
       <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-2">
-        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?auto=format&fit=crop&w=600&q=80" alt="Project Two" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
+        <img src="https://images.unsplash.com/photo-1758812820660-4f987ebf0ce3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwbHVtYmVyJTIwaW50ZXJpb3J8ZW58MXwwfHx8MTc3MjY1MTY5OXww&ixlib=rb-4.1.0&q=80&w=1080" alt="Project Two" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/70 group-hover:via-black/20 transition-all duration-400"></div>
         <div class="absolute inset-0 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">Project Two</div>
       </div>
       
       <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-3">
-        <img src="https://images.unsplash.com/photo-1585129777188-94600bc7b4b3?auto=format&fit=crop&w=600&q=80" alt="Project Three" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
+        <img src="https://images.unsplash.com/photo-1771122453274-d3270e73cf94?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwbHVtYmVyJTIwcHJvZmVzc2lvbmFsJTIwd29ya3xlbnwxfDB8fHwxNzcyNjUxNzAxfDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Project Three" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/70 group-hover:via-black/20 transition-all duration-400"></div>
         <div class="absolute inset-0 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">Project Three</div>
       </div>
       
       <div class="group relative overflow-hidden rounded-brand aspect-[4/3] cursor-pointer reveal reveal-delay-4">
-        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=600&q=80" alt="Project Four" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
+        <img src="https://images.unsplash.com/photo-1626025448264-f419b55fe9a3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4ODIwMTl8MHwxfHNlYXJjaHwxfHxwbHVtYmVyJTIwZGV0YWlsJTIwY2xvc2UlMjB1cHxlbnwxfDB8fHwxNzcyNjUxNzA0fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Project Four" class="w-full h-full object-cover transition-all duration-[600ms] ease-[cubic-bezier(.2,.8,.4,1)] group-hover:scale-[1.08] group-hover:brightness-[0.8]">
         <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent group-hover:from-black/70 group-hover:via-black/20 transition-all duration-400"></div>
         <div class="absolute inset-0 flex items-end justify-center pb-6 opacity-0 group-hover:opacity-100 transition-opacity duration-400 text-white font-heading font-semibold text-sm tracking-wide uppercase">Project Four</div>
       </div>
@@ -267,21 +290,21 @@
     <div class="text-[0.68rem] font-semibold uppercase tracking-[0.25em] text-accent mb-3">Get In Touch</div>
     <h2 class="font-heading text-[2.5rem] font-bold leading-tight mb-4 text-primary">Contact Us</h2>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mt-10">
-      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8" style="border-top: 4px solid #FF8C00">
+      <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8" style="border-top: 4px solid var(--accent, #FF8C00)">
         <h4 class="font-heading font-semibold mb-4 text-primary">Business Hours</h4>
-        <div class="flex justify-between py-2.5 border-b border-gray-100"><span class="text-ink/80">Mon &ndash; Fri</span><span class="text-ink/60">8am &ndash; 6pm</span></div>
-        <div class="flex justify-between py-2.5 border-b border-gray-100"><span class="text-ink/80">Saturday</span><span class="text-ink/60">9am &ndash; 3pm</span></div>
-        <div class="flex justify-between py-2.5"><span class="text-ink/80">Sunday</span><span class="text-ink/60">Closed</span></div>
+        <div class="flex justify-between py-2.5 border-b border-gray-100"><span style="color: var(--text-dark, #333); opacity: 0.8">Mon &ndash; Fri</span><span class="opacity-60">9am &ndash; 5pm</span></div>
+        <div class="flex justify-between py-2.5 border-b border-gray-100"><span style="color: var(--text-dark, #333); opacity: 0.8">Saturday</span><span class="opacity-60">10am &ndash; 2pm</span></div>
+        <div class="flex justify-between py-2.5"><span style="color: var(--text-dark, #333); opacity: 0.8">Sunday</span><span class="opacity-60">Closed</span></div>
       </div>
       <div class="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">
         <h4 class="font-heading font-semibold mb-4 text-primary">JJ’s Plumbing</h4>
-        <p class="text-sm text-ink/70 mb-2">&#128222; +15053973150</p>
-        <p class="text-sm text-ink/70 mb-2">&#128205; Serving your local community</p>
+        <p class="text-sm mb-2" style="color: var(--text-dark, #333); opacity: 0.7">&#128222; +15053973150</p>
+        <p class="text-sm mb-2" style="color: var(--text-dark, #333); opacity: 0.7">&#128205; Serving your local community</p>
       </div>
-      <div class="rounded-2xl shadow-xl p-8 flex flex-col justify-center text-white" style="background: linear-gradient(135deg, #FF8C00, #1A436C)">
+      <div class="rounded-2xl shadow-xl p-8 flex flex-col justify-center text-white" style="background: linear-gradient(135deg, var(--accent, #FF8C00), var(--primary, #1A436C))">
         <h3 class="font-heading font-semibold text-white mb-3">Ready to Start?</h3>
         <p class="opacity-90 mb-5">Give us a call or stop by — we'd love to hear from you.</p>
-        <a href="tel:+15053973150" class="inline-flex items-center gap-2 bg-white text-accent px-7 py-3.5 rounded-brand font-semibold text-sm self-start transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg">Call Us Now</a>
+        <a href="tel:+15053973150" class="inline-flex items-center gap-2 bg-white text-accent px-7 py-3.5 rounded-brand font-semibold text-sm self-start transition-all duration-300 hover:-translate-y-0.5 shadow-md hover:shadow-lg">Get Started Today</a>
       </div>
     </div>
   </div>
@@ -291,7 +314,7 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
       <div>
         <div class="font-heading text-2xl font-bold text-white mb-2">JJ’s Plumbing</div>
-        <div class="text-sm opacity-60">Your Local & Trusted Plumbing Solution.</div>
+        <div class="text-sm opacity-60">Your pipes are in good hands.</div>
       </div>
       <div>
         <h4 class="text-white text-[0.85rem] mb-3 uppercase tracking-widest opacity-60">Quick Links</h4>
